@@ -4,6 +4,146 @@
     "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\4-SGF_API\\4-SGF_API.csproj": {}
   },
   "projects": {
+    "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\2-SGF_Modelo\\2-SGF_Modelo.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\2-SGF_Modelo\\2-SGF_Modelo.csproj",
+        "projectName": "2-SGF_Modelo",
+        "projectPath": "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\2-SGF_Modelo\\2-SGF_Modelo.csproj",
+        "packagesPath": "C:\\Users\\dalvaradog\\.nuget\\packages\\",
+        "outputPath": "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\2-SGF_Modelo\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\dalvaradog\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.200"
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\3-SGF_AccesoDatos\\3-SGF_AccesoDatos.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\3-SGF_AccesoDatos\\3-SGF_AccesoDatos.csproj",
+        "projectName": "3-SGF_AccesoDatos",
+        "projectPath": "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\3-SGF_AccesoDatos\\3-SGF_AccesoDatos.csproj",
+        "packagesPath": "C:\\Users\\dalvaradog\\.nuget\\packages\\",
+        "outputPath": "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\3-SGF_AccesoDatos\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\dalvaradog\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\5-SGF_Interfaces\\5-SGF_Interfaces.csproj": {
+                "projectPath": "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\5-SGF_Interfaces\\5-SGF_Interfaces.csproj"
+              },
+              "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\7-SGF_Comun\\7-SGF_Comun.csproj": {
+                "projectPath": "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\7-SGF_Comun\\7-SGF_Comun.csproj"
+              },
+              "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\8-SGF_Log\\8-SGF_Log.csproj": {
+                "projectPath": "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\8-SGF_Log\\8-SGF_Log.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.200"
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\4-SGF_API\\4-SGF_API.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -31,7 +171,20 @@
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\3-SGF_AccesoDatos\\3-SGF_AccesoDatos.csproj": {
+                "projectPath": "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\3-SGF_AccesoDatos\\3-SGF_AccesoDatos.csproj"
+              },
+              "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\5-SGF_Interfaces\\5-SGF_Interfaces.csproj": {
+                "projectPath": "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\5-SGF_Interfaces\\5-SGF_Interfaces.csproj"
+              },
+              "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\7-SGF_Comun\\7-SGF_Comun.csproj": {
+                "projectPath": "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\7-SGF_Comun\\7-SGF_Comun.csproj"
+              },
+              "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\8-SGF_Log\\8-SGF_Log.csproj": {
+                "projectPath": "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\8-SGF_Log\\8-SGF_Log.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -74,6 +227,212 @@
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
             },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\5-SGF_Interfaces\\5-SGF_Interfaces.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\5-SGF_Interfaces\\5-SGF_Interfaces.csproj",
+        "projectName": "5-SGF_Interfaces",
+        "projectPath": "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\5-SGF_Interfaces\\5-SGF_Interfaces.csproj",
+        "packagesPath": "C:\\Users\\dalvaradog\\.nuget\\packages\\",
+        "outputPath": "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\5-SGF_Interfaces\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\dalvaradog\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\2-SGF_Modelo\\2-SGF_Modelo.csproj": {
+                "projectPath": "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\2-SGF_Modelo\\2-SGF_Modelo.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.200"
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\7-SGF_Comun\\7-SGF_Comun.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\7-SGF_Comun\\7-SGF_Comun.csproj",
+        "projectName": "7-SGF_Comun",
+        "projectPath": "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\7-SGF_Comun\\7-SGF_Comun.csproj",
+        "packagesPath": "C:\\Users\\dalvaradog\\.nuget\\packages\\",
+        "outputPath": "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\7-SGF_Comun\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\dalvaradog\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\2-SGF_Modelo\\2-SGF_Modelo.csproj": {
+                "projectPath": "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\2-SGF_Modelo\\2-SGF_Modelo.csproj"
+              },
+              "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\8-SGF_Log\\8-SGF_Log.csproj": {
+                "projectPath": "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\8-SGF_Log\\8-SGF_Log.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.200"
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\8-SGF_Log\\8-SGF_Log.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\8-SGF_Log\\8-SGF_Log.csproj",
+        "projectName": "8-SGF_Log",
+        "projectPath": "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\8-SGF_Log\\8-SGF_Log.csproj",
+        "packagesPath": "C:\\Users\\dalvaradog\\.nuget\\packages\\",
+        "outputPath": "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\8-SGF_Log\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\dalvaradog\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.200"
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

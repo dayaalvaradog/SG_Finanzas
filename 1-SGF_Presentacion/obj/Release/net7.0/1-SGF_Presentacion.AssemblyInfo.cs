@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("1-SGF_Presentacion")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+089faa5d01f7a54cfdfd72d38a4935f7f276436a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c5b5e3525d25a50a233d274eddf03d8c6a1beb44")]
 [assembly: System.Reflection.AssemblyProductAttribute("1-SGF_Presentacion")]
 [assembly: System.Reflection.AssemblyTitleAttribute("1-SGF_Presentacion")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

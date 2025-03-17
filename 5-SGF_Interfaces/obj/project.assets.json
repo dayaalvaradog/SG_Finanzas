@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net7.0": {}
+    "net7.0": {
+      "2-SGF_Modelo/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/2-SGF_Modelo.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/2-SGF_Modelo.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "2-SGF_Modelo/1.0.0": {
+      "type": "project",
+      "path": "../2-SGF_Modelo/2-SGF_Modelo.csproj",
+      "msbuildProject": "../2-SGF_Modelo/2-SGF_Modelo.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net7.0": []
+    "net7.0": [
+      "2-SGF_Modelo >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\dalvaradog\\.nuget\\packages\\": {},
@@ -38,7 +57,11 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\2-SGF_Modelo\\2-SGF_Modelo.csproj": {
+              "projectPath": "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\2-SGF_Modelo\\2-SGF_Modelo.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

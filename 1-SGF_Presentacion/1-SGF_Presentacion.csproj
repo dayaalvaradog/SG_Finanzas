@@ -7,4 +7,10 @@
     <RootNamespace>_1_SGF_Presentacion</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\2-SGF_Modelo\2-SGF_Modelo.csproj" />
+    <ProjectReference Include="..\7-SGF_Comun\7-SGF_Comun.csproj" />
+    <ProjectReference Include="..\8-SGF_Log\8-SGF_Log.csproj" />
+  </ItemGroup>
+
 </Project>

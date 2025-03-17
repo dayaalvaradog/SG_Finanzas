@@ -7,4 +7,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\5-SGF_Interfaces\5-SGF_Interfaces.csproj" />
+    <ProjectReference Include="..\7-SGF_Comun\7-SGF_Comun.csproj" />
+    <ProjectReference Include="..\8-SGF_Log\8-SGF_Log.csproj" />
+  </ItemGroup>
+
 </Project>

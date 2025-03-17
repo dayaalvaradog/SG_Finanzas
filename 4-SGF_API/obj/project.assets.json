@@ -107,6 +107,68 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "2-SGF_Modelo/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/2-SGF_Modelo.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/2-SGF_Modelo.dll": {}
+        }
+      },
+      "3-SGF_AccesoDatos/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "5-SGF_Interfaces": "1.0.0",
+          "7-SGF_Comun": "1.0.0",
+          "8-SGF_Log": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/3-SGF_AccesoDatos.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/3-SGF_AccesoDatos.dll": {}
+        }
+      },
+      "5-SGF_Interfaces/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "2-SGF_Modelo": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/5-SGF_Interfaces.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/5-SGF_Interfaces.dll": {}
+        }
+      },
+      "7-SGF_Comun/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "2-SGF_Modelo": "1.0.0",
+          "8-SGF_Log": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/7-SGF_Comun.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/7-SGF_Comun.dll": {}
+        }
+      },
+      "8-SGF_Log/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/8-SGF_Log.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/8-SGF_Log.dll": {}
+        }
       }
     }
   },
@@ -460,10 +522,39 @@
         "swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
+    },
+    "2-SGF_Modelo/1.0.0": {
+      "type": "project",
+      "path": "../2-SGF_Modelo/2-SGF_Modelo.csproj",
+      "msbuildProject": "../2-SGF_Modelo/2-SGF_Modelo.csproj"
+    },
+    "3-SGF_AccesoDatos/1.0.0": {
+      "type": "project",
+      "path": "../3-SGF_AccesoDatos/3-SGF_AccesoDatos.csproj",
+      "msbuildProject": "../3-SGF_AccesoDatos/3-SGF_AccesoDatos.csproj"
+    },
+    "5-SGF_Interfaces/1.0.0": {
+      "type": "project",
+      "path": "../5-SGF_Interfaces/5-SGF_Interfaces.csproj",
+      "msbuildProject": "../5-SGF_Interfaces/5-SGF_Interfaces.csproj"
+    },
+    "7-SGF_Comun/1.0.0": {
+      "type": "project",
+      "path": "../7-SGF_Comun/7-SGF_Comun.csproj",
+      "msbuildProject": "../7-SGF_Comun/7-SGF_Comun.csproj"
+    },
+    "8-SGF_Log/1.0.0": {
+      "type": "project",
+      "path": "../8-SGF_Log/8-SGF_Log.csproj",
+      "msbuildProject": "../8-SGF_Log/8-SGF_Log.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "3-SGF_AccesoDatos >= 1.0.0",
+      "5-SGF_Interfaces >= 1.0.0",
+      "7-SGF_Comun >= 1.0.0",
+      "8-SGF_Log >= 1.0.0",
       "Microsoft.AspNetCore.OpenApi >= 7.0.20",
       "Swashbuckle.AspNetCore >= 6.5.0"
     ]
@@ -499,7 +590,20 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\3-SGF_AccesoDatos\\3-SGF_AccesoDatos.csproj": {
+              "projectPath": "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\3-SGF_AccesoDatos\\3-SGF_AccesoDatos.csproj"
+            },
+            "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\5-SGF_Interfaces\\5-SGF_Interfaces.csproj": {
+              "projectPath": "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\5-SGF_Interfaces\\5-SGF_Interfaces.csproj"
+            },
+            "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\7-SGF_Comun\\7-SGF_Comun.csproj": {
+              "projectPath": "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\7-SGF_Comun\\7-SGF_Comun.csproj"
+            },
+            "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\8-SGF_Log\\8-SGF_Log.csproj": {
+              "projectPath": "C:\\Proy\\Proy1\\SG_Finanzas\\SG_Finanzas\\8-SGF_Log\\8-SGF_Log.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
