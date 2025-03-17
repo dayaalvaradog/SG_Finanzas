@@ -1,0 +1,12 @@
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\3-SGF_AccesoDatos\bin\Debug\net7.0\3-SGF_AccesoDatos.deps.json
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\3-SGF_AccesoDatos\bin\Debug\net7.0\3-SGF_AccesoDatos.dll
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\3-SGF_AccesoDatos\bin\Debug\net7.0\3-SGF_AccesoDatos.pdb
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\3-SGF_AccesoDatos\obj\Debug\net7.0\3-SGF_AccesoDatos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\3-SGF_AccesoDatos\obj\Debug\net7.0\3-SGF_AccesoDatos.AssemblyInfoInputs.cache
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\3-SGF_AccesoDatos\obj\Debug\net7.0\3-SGF_AccesoDatos.AssemblyInfo.cs
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\3-SGF_AccesoDatos\obj\Debug\net7.0\3-SGF_AccesoDatos.csproj.CoreCompileInputs.cache
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\3-SGF_AccesoDatos\obj\Debug\net7.0\3-SGF_AccesoDatos.sourcelink.json
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\3-SGF_AccesoDatos\obj\Debug\net7.0\3-SGF_AccesoDatos.dll
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\3-SGF_AccesoDatos\obj\Debug\net7.0\refint\3-SGF_AccesoDatos.dll
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\3-SGF_AccesoDatos\obj\Debug\net7.0\3-SGF_AccesoDatos.pdb
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\3-SGF_AccesoDatos\obj\Debug\net7.0\ref\3-SGF_AccesoDatos.dll

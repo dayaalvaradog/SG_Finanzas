@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("8-SGF_Log")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+70554bae8337657381b63cc8ecc5e2f263ca990b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+089faa5d01f7a54cfdfd72d38a4935f7f276436a")]
 [assembly: System.Reflection.AssemblyProductAttribute("8-SGF_Log")]
 [assembly: System.Reflection.AssemblyTitleAttribute("8-SGF_Log")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

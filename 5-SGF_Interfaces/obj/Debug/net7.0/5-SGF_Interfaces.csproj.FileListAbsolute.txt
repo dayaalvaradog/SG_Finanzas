@@ -1,0 +1,12 @@
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\5-SGF_Interfaces\bin\Debug\net7.0\5-SGF_Interfaces.deps.json
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\5-SGF_Interfaces\bin\Debug\net7.0\5-SGF_Interfaces.dll
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\5-SGF_Interfaces\bin\Debug\net7.0\5-SGF_Interfaces.pdb
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\5-SGF_Interfaces\obj\Debug\net7.0\5-SGF_Interfaces.GeneratedMSBuildEditorConfig.editorconfig
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\5-SGF_Interfaces\obj\Debug\net7.0\5-SGF_Interfaces.AssemblyInfoInputs.cache
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\5-SGF_Interfaces\obj\Debug\net7.0\5-SGF_Interfaces.AssemblyInfo.cs
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\5-SGF_Interfaces\obj\Debug\net7.0\5-SGF_Interfaces.csproj.CoreCompileInputs.cache
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\5-SGF_Interfaces\obj\Debug\net7.0\5-SGF_Interfaces.sourcelink.json
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\5-SGF_Interfaces\obj\Debug\net7.0\5-SGF_Interfaces.dll
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\5-SGF_Interfaces\obj\Debug\net7.0\refint\5-SGF_Interfaces.dll
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\5-SGF_Interfaces\obj\Debug\net7.0\5-SGF_Interfaces.pdb
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\5-SGF_Interfaces\obj\Debug\net7.0\ref\5-SGF_Interfaces.dll

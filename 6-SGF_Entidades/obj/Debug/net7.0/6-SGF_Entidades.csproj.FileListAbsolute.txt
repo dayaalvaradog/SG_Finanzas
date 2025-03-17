@@ -1,0 +1,12 @@
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\6-SGF_Entidades\bin\Debug\net7.0\6-SGF_Entidades.deps.json
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\6-SGF_Entidades\bin\Debug\net7.0\6-SGF_Entidades.dll
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\6-SGF_Entidades\bin\Debug\net7.0\6-SGF_Entidades.pdb
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\6-SGF_Entidades\obj\Debug\net7.0\6-SGF_Entidades.GeneratedMSBuildEditorConfig.editorconfig
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\6-SGF_Entidades\obj\Debug\net7.0\6-SGF_Entidades.AssemblyInfoInputs.cache
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\6-SGF_Entidades\obj\Debug\net7.0\6-SGF_Entidades.AssemblyInfo.cs
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\6-SGF_Entidades\obj\Debug\net7.0\6-SGF_Entidades.csproj.CoreCompileInputs.cache
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\6-SGF_Entidades\obj\Debug\net7.0\6-SGF_Entidades.sourcelink.json
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\6-SGF_Entidades\obj\Debug\net7.0\6-SGF_Entidades.dll
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\6-SGF_Entidades\obj\Debug\net7.0\refint\6-SGF_Entidades.dll
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\6-SGF_Entidades\obj\Debug\net7.0\6-SGF_Entidades.pdb
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\6-SGF_Entidades\obj\Debug\net7.0\ref\6-SGF_Entidades.dll

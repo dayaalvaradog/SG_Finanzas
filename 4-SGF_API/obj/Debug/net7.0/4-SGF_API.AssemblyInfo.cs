@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("4-SGF_API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+089faa5d01f7a54cfdfd72d38a4935f7f276436a")]
 [assembly: System.Reflection.AssemblyProductAttribute("4-SGF_API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("4-SGF_API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

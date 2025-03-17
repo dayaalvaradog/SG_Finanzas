@@ -1,0 +1,12 @@
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\8-SGF_Log\bin\Debug\net7.0\8-SGF_Log.deps.json
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\8-SGF_Log\bin\Debug\net7.0\8-SGF_Log.dll
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\8-SGF_Log\bin\Debug\net7.0\8-SGF_Log.pdb
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\8-SGF_Log\obj\Debug\net7.0\8-SGF_Log.GeneratedMSBuildEditorConfig.editorconfig
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\8-SGF_Log\obj\Debug\net7.0\8-SGF_Log.AssemblyInfoInputs.cache
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\8-SGF_Log\obj\Debug\net7.0\8-SGF_Log.AssemblyInfo.cs
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\8-SGF_Log\obj\Debug\net7.0\8-SGF_Log.csproj.CoreCompileInputs.cache
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\8-SGF_Log\obj\Debug\net7.0\8-SGF_Log.sourcelink.json
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\8-SGF_Log\obj\Debug\net7.0\8-SGF_Log.dll
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\8-SGF_Log\obj\Debug\net7.0\refint\8-SGF_Log.dll
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\8-SGF_Log\obj\Debug\net7.0\8-SGF_Log.pdb
+C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\8-SGF_Log\obj\Debug\net7.0\ref\8-SGF_Log.dll
