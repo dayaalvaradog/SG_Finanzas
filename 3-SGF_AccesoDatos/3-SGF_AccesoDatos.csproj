@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\5-SGF_Interfaces\5-SGF_Interfaces.csproj" />
     <ProjectReference Include="..\7-SGF_Comun\7-SGF_Comun.csproj" />
     <ProjectReference Include="..\8-SGF_Log\8-SGF_Log.csproj" />

@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\2-SGF_Modelo\2-SGF_Modelo.csproj" />
+    <ProjectReference Include="..\6-SGF_Entidades\6-SGF_Entidades.csproj" />
   </ItemGroup>
 
 </Project>

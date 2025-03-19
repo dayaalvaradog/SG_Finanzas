@@ -13,10 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\3-SGF_AccesoDatos\3-SGF_AccesoDatos.csproj" />
     <ProjectReference Include="..\5-SGF_Interfaces\5-SGF_Interfaces.csproj" />
     <ProjectReference Include="..\7-SGF_Comun\7-SGF_Comun.csproj" />
