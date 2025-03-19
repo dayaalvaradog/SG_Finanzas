@@ -3,6 +3,7 @@
 ################################################################################
 
 /.vs/SG_Finanzas
+/.gitignore
 /.vs
 
 ## Ignore Visual Studio temporary files, build results, and
