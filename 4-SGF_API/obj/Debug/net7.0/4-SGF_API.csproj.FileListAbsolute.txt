@@ -1,8 +1,0 @@
-C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\4-SGF_API\obj\Debug\net7.0\4-SGF_API.csproj.AssemblyReference.cache
-C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\4-SGF_API\obj\Debug\net7.0\4-SGF_API.GeneratedMSBuildEditorConfig.editorconfig
-C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\4-SGF_API\obj\Debug\net7.0\4-SGF_API.AssemblyInfoInputs.cache
-C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\4-SGF_API\obj\Debug\net7.0\4-SGF_API.AssemblyInfo.cs
-C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\4-SGF_API\obj\Debug\net7.0\4-SGF_API.csproj.CoreCompileInputs.cache
-C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\4-SGF_API\obj\Debug\net7.0\4-SGF_API.MvcApplicationPartsAssemblyInfo.cs
-C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\4-SGF_API\obj\Debug\net7.0\4-SGF_API.MvcApplicationPartsAssemblyInfo.cache
-C:\Proy\Proy1\SG_Finanzas\SG_Finanzas\4-SGF_API\obj\Debug\net7.0\4-SGF_API.sourcelink.json
