@@ -31,6 +31,7 @@ public partial class SGFContext : DbContext
     public virtual DbSet<usp_ObtenerClasificaciones> usp_ObtenerClasificaciones { get; set; }
     public virtual DbSet<usp_ObtenerTiposUsuario> usp_ObtenerTiposUsuario { get; set; }
     public virtual DbSet<usp_ObtenerTiposPermiso> usp_ObtenerTiposPermiso { get; set; }
+    public virtual DbSet<usp_ValidarUsuario> usp_ValidarUsuario { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseSqlServer(_connectionString, providerOptions => { providerOptions.EnableRetryOnFailure(); });
@@ -56,6 +57,12 @@ public partial class SGFContext : DbContext
             });
 
         modelBuilder.Entity<usp_ObtenerTiposPermiso>(
+            entity =>
+            {
+                entity.HasNoKey();
+            });
+
+        modelBuilder.Entity<usp_ValidarUsuario>(
             entity =>
             {
                 entity.HasNoKey();
