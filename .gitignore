@@ -431,3 +431,8 @@ MigrationBackup/
 /8-SGF_Log/bin/Debug/net7.0/8-SGF_Log.dll
 /8-SGF_Log/bin/Debug/net7.0/8-SGF_Log.pdb
 /8-SGF_Log/obj/Debug/net7.0/ref/8-SGF_Log.dll
+/1-SGF_Presentacion/bin/Debug/net7.0/1-SGF_Presentacion.staticwebassets.runtime.json
+/1-SGF_Presentacion/obj/Debug/net7.0/staticwebassets.upToDateCheck.txt
+/1-SGF_Presentacion/obj/Debug/net7.0/staticwebassets.pack.json
+/1-SGF_Presentacion/1-SGF_Presentacion.csproj.user
+/1-SGF_Presentacion/1-SGF_Presentacion.csproj

@@ -8,9 +8,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="bootstrap" Version="5.3.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\2-SGF_Modelo\2-SGF_Modelo.csproj" />
     <ProjectReference Include="..\7-SGF_Comun\7-SGF_Comun.csproj" />
     <ProjectReference Include="..\8-SGF_Log\8-SGF_Log.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\img\" />
   </ItemGroup>
 
 </Project>

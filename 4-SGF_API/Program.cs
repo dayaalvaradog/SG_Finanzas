@@ -22,6 +22,7 @@ builder.Services.AddControllers();
 
 builder.Services.AddScoped<SGFContext>();
 builder.Services.AddScoped<ICatalogo, ADCatalogo>();
+builder.Services.AddScoped<ILogin, ADLogin>();
 
 
 builder.Services.AddEndpointsApiExplorer();

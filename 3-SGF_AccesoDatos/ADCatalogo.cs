@@ -42,6 +42,73 @@ namespace _3_SGF_AccesoDatos
             }
         }
 
+        public List<Clasificacion> ObtenerClasificaciones()
+        {
+            try
+            {
+                return context.usp_ObtenerClasificaciones
+                       .FromSqlRaw("EXECUTE dbo.usp_ObtenerClasificaciones")
+                       .AsNoTracking()
+                       .AsEnumerable()
+                       .Select(x => new Clasificacion
+                       {
+                           CodClasificacion = x.CodClasificacion,
+                           Descripcion = x.Descripcion,
+                           Activo = x.Activo
+                       })
+                       .ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<TiposUsuario> ObtenerTiposUsuario()
+        {
+            try
+            {
+                return context.usp_ObtenerTiposUsuario
+                       .FromSqlRaw("EXECUTE dbo.usp_ObtenerTiposUsuario")
+                       .AsNoTracking()
+                       .AsEnumerable()
+                       .Select(x => new TiposUsuario
+                       {
+                           CodTipoUsuario = x.CodTipoUsuario,
+                           Descripcion = x.Descripcion,
+                           Activo = x.Activo
+                       })
+                       .ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<PermisoUsuario> ObtenerTiposPermiso()
+        {
+            try
+            {
+                return context.usp_ObtenerTiposPermiso
+                       .FromSqlRaw("EXECUTE dbo.usp_ObtenerTiposPermiso")
+                       .AsNoTracking()
+                       .AsEnumerable()
+                       .Select(x => new PermisoUsuario
+                       {
+                           CodPermiso = x.CodPermiso,
+                           Descripcion = x.Descripcion,
+                           Detalle = x.Detalle,
+                           Activo = x.Activo
+                       })
+                       .ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
 
     }
 

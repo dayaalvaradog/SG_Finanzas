@@ -34,5 +34,59 @@ namespace _4_SGF_API.Controllers
                 return BadRequest(response);
             }
         }
+
+        [HttpGet("Clasificaciones")]
+        public IActionResult ObtenerClasificaciones()
+        {
+            Respuesta<List<Clasificacion>> response = new Respuesta<List<Clasificacion>>();
+            try
+            {
+                response.Result = catalogo.ObtenerClasificaciones();
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                response.TextError = (ex.InnerException != null ? ex.InnerException.Message : ex.Message);
+                response.NumError = 1;
+                WriteLog.Log("Catalogos ObtenerClasificaciones", response.TextError, DatosAppSettingsApi.GetData("Url:LogApi"), "");
+                return BadRequest(response);
+            }
+        }
+
+        [HttpGet("TiposUsuario")]
+        public IActionResult ObtenerTiposUsuario()
+        {
+            Respuesta<List<TiposUsuario>> response = new Respuesta<List<TiposUsuario>>();
+            try
+            {
+                response.Result = catalogo.ObtenerTiposUsuario();
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                response.TextError = (ex.InnerException != null ? ex.InnerException.Message : ex.Message);
+                response.NumError = 1;
+                WriteLog.Log("Catalogos ObtenerTiposUsuario", response.TextError, DatosAppSettingsApi.GetData("Url:LogApi"), "");
+                return BadRequest(response);
+            }
+        }
+
+        [HttpGet("TiposPermiso")]
+        public IActionResult ObtenerTiposPermiso()
+        {
+            Respuesta<List<PermisoUsuario>> response = new Respuesta<List<PermisoUsuario>>();
+            try
+            {
+                response.Result = catalogo.ObtenerTiposPermiso();
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                response.TextError = (ex.InnerException != null ? ex.InnerException.Message : ex.Message);
+                response.NumError = 1;
+                WriteLog.Log("Catalogos ObtenerTiposPermiso", response.TextError, DatosAppSettingsApi.GetData("Url:LogApi"), "");
+                return BadRequest(response);
+            }
+        }
     }
 }
