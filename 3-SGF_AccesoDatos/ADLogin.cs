@@ -21,7 +21,7 @@ namespace _3_SGF_AccesoDatos
             context = _context;
         }
 
-        public List<RespuestaLogin> ValidarUsuario(string Usuario, string Contraseña)
+        public RespuestaLogin ValidarUsuario(string Usuario, string Contraseña)
         {
             try
             {
@@ -38,7 +38,7 @@ namespace _3_SGF_AccesoDatos
                            TipoRespuesta = x.TipoRespuesta,
                            MensajeRespuesta = x.MensajeRespuesta
                        })
-                       .ToList();
+                       .ToList().FirstOrDefault();
             }
             catch (Exception ex)
             {

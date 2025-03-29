@@ -22,7 +22,7 @@ namespace _4_SGF_API.Controllers
         [HttpGet("ValidarUsuario/{Usuario}/{Contraseña}")]
         public IActionResult ValidarUsuario(string Usuario, string Contraseña)
         {
-            Respuesta<List<RespuestaLogin>> response = new Respuesta<List<RespuestaLogin>>();
+            Respuesta<RespuestaLogin> response = new Respuesta<RespuestaLogin>();
             try
             {
                 response.Result = login.ValidarUsuario(Usuario,Contraseña);

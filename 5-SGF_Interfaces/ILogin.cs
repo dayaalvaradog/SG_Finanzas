@@ -10,6 +10,6 @@ namespace _5_SGF_Interfaces
 {
     public interface ILogin
     {
-        public List<RespuestaLogin> ValidarUsuario(string Usuario, string Contraseña);
+        public RespuestaLogin ValidarUsuario(string Usuario, string Contraseña);
     }
 }

@@ -8,7 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\2-SGF_Modelo\2-SGF_Modelo.csproj" />
+    <ProjectReference Include="..\5-SGF_Interfaces\5-SGF_Interfaces.csproj" />
     <ProjectReference Include="..\8-SGF_Log\8-SGF_Log.csproj" />
   </ItemGroup>
 
