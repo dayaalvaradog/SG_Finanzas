@@ -1,38 +1,56 @@
-﻿<!DOCTYPE html>
-<html lang="es">
-<head>
+﻿@{
     <meta charset="UTF-8">
     <title></title>
     <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <link rel="stylesheet" href="~/css/Login.css">
-    <script src="~/js/Login.js" asp-append-version="true"></script>
-
-
-</head>
-<body>
+}
+<div class="container">
     <form class="formulario">
 
         <h1>Login</h1>
         <div class="contenedor">
 
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="form-control">
+                                    <i class="fas fa-envelope icon"></i>
+                                    <input id="Usuario" type="text" placeholder="Usuario">
+                                </div>
+                                <span class="obligatorio-rojo Msg_Usuario"> *Por favor, rellene este campo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="form-control">
+                                    <i class="fas fa-key icon"></i>
+                                    <input id="Contrasenia" type="password" placeholder="Contraseña">
+                                </div>
+                                <span class="obligatorio-rojo Msg_Contrasenia"> *Por favor, rellene este campo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
-            <div class="input-contenedor">
-                <i class="fas fa-envelope icon"></i>
-                <input type="text" placeholder="Usuario">
 
+                <div class="input-group">
+                    <input id="btnLogin" onclick="IniciarSesion();" value="Login" class="button">
+                    <div id="liveAlertPlaceholder"></div>
+                    <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
+                    <p>¿No tienes una cuenta? <a class="link" href="@Url.Action("Registrarse","Login")"> Registrarse </a></p>
+                </div>
             </div>
-
-            <div class="input-contenedor">
-                <i class="fas fa-key icon"></i>
-                <input type="password" placeholder="Contraseña">
-
-            </div>
-            <input type="submit" value="Login" class="button">
-            <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
-            <p>¿No tienes una cuenta? <a class="link" href="@Url.Action("Registrarse","Login")"> Registrarse </a></p>
         </div>
     </form>
-</body>
-</html>
+</div>
+
+<script src="~/js/Login.js" asp-append-version="true"></script>

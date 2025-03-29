@@ -9,10 +9,12 @@
 
   <ItemGroup>
     <PackageReference Include="bootstrap" Version="5.3.3" />
+    <PackageReference Include="Google.Protobuf" Version="3.30.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\2-SGF_Modelo\2-SGF_Modelo.csproj" />
+    <ProjectReference Include="..\4-SGF_API\4-SGF_API.csproj" />
     <ProjectReference Include="..\7-SGF_Comun\7-SGF_Comun.csproj" />
     <ProjectReference Include="..\8-SGF_Log\8-SGF_Log.csproj" />
   </ItemGroup>

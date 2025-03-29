@@ -1,3 +1,11 @@
+:root {
+    --grisoscuro: #424141;
+    --azulclaro: #3D77B0;
+    --rojo2: #E94650;
+    --rojo: #C63B3B;
+    --blanco: #fff;
+}
+
 html {
   font-size: 14px;
 }
@@ -19,4 +27,97 @@ html {
 
 body {
   margin-bottom: 60px;
+}
+
+.obligatorio-rojo {
+    color: var(--rojo2) !important;
+    display: none;
+}
+
+span.obligatorio, span.obligatorio-rojo {
+    font-weight: 400;
+    font-size: 12px;
+    color: var(--grisoscuro);
+    letter-spacing: 0.25px;
+    line-height: 20px;
+}
+
+.input-rojo input:active {
+    box-shadow: none !important;
+    color: red !important;
+}
+
+.input-rojo, .dropdown select.input-rojo {
+    border: 2px solid var(--rojo2) !important;
+    border-radius: 2px;
+}
+
+.input-rojo button.dropdown-toggle {
+    border: none !important;
+    border-radius: 2px;
+}
+
+.alert {
+    box-sizing: border-box;
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 16px;
+    position: fixed;
+    width: 450px;
+    height: 56px;
+    left: 25px;
+    bottom: 10px;
+    font-size: 14px;
+    border-radius: 4px;
+    /* Inside auto layout */
+
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+    z-index: 10000;
+    color: var(--blanco);
+}
+
+.alert-azul {
+    background: var(--azulclaro);
+}
+
+.alert-rojo {
+    background: var(--rojo);
+    bottom: 90px;
+}
+
+.fade {
+    transition: opacity 0.15s linear;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fade {
+        transition: none;
+    }
+}
+
+.fade:not(.show) {
+    opacity: 0;
+}
+
+.libre, .anchoCompleto {
+    width: 100%;
+}
+
+.input-group:not(.has-validation) > .dropdown-toggle:nth-last-child(n+3), .input-group:not(.has-validation) > .form-floating:not(:last-child) > .form-control, .input-group:not(.has-validation) > .form-floating:not(:last-child) > .form-select, .input-group:not(.has-validation) > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating) {
+    border-radius: 2px;
+}
+
+.contenido {
+    margin-top: 42px;
+    padding: 0 50px 50px 50px;
+}
+
+.contenido2 {
+    padding: 0 50px;
+    margin-bottom: 40px;
 }
