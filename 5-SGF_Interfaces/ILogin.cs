@@ -1,5 +1,6 @@
 ﻿using _2_SGF_Modelo.Entidades.Login;
 using _6_SGF_Entidades.Catalogos;
+using _6_SGF_Entidades.Login;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,7 @@ namespace _5_SGF_Interfaces
     public interface ILogin
     {
         public RespuestaLogin ValidarUsuario(string Usuario, string Contraseña);
+        public DatosUsuario ObtenerDatosUsuario(int Usuario);
+        public List<PermisoUsuario> ObtenerPermisosUsuario(int Usuario);
     }
 }

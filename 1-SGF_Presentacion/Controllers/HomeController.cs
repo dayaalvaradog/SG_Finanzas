@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using _1_SGF_Presentacion.Models;
+using Newtonsoft.Json;
 
 namespace _1_SGF_Presentacion.Controllers;
 

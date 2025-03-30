@@ -13,5 +13,6 @@ namespace _5_SGF_Interfaces
         public List<Clasificacion> ObtenerClasificaciones();
         public List<TiposUsuario> ObtenerTiposUsuario();
         public List<PermisoUsuario> ObtenerTiposPermiso();
+
     }
 }

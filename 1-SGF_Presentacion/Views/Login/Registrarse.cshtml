@@ -1,15 +1,14 @@
-﻿<!DOCTYPE html>
-<html lang="es">
-<head>
+﻿@{
     <meta charset="UTF-8">
     <title></title>
     <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <link rel="stylesheet" href="~/css/Registrarse.css">
     <script src="~/js/Registrarse.js" asp-append-version="true"></script>
-
-
-</head>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/_1_SGF_Presentacion.styles.css" asp-append-version="true" />
+}
 <body>
     <form class="formulario">
 
@@ -18,37 +17,52 @@
 
             <div class="input-contenedor">
                 <i class="fas fa-user icon"></i>
-                <input type="text" placeholder="Nombre Completo">
+                <input id="nombrecompleto" type="text" placeholder="Nombre Completo">
+                <span class="obligatorio-rojo Msg_NombreCompleto"> *Por favor, rellene este campo</span>
+            </div>
 
+            <div class="input-contenedor">
+                <i class="fas fa-user-cog icon"></i>
+                <input id="nombreusuario" type="text" placeholder="Nombre de usuario">
+                <span class="obligatorio-rojo Msg_NombreUsuario"> *Por favor, rellene este campo</span>
             </div>
 
             <div class="input-contenedor">
                 <i class="fas fa-envelope icon"></i>
-                <input type="text" placeholder="Nombre de usuario">
-
-            </div>
-
-            <div class="input-contenedor">
-                <i class="fas fa-envelope icon"></i>
-                <input type="text" placeholder="Correo Electronico">
-
+                <input id="correo" type="text" placeholder="Correo Electronico">
+                <span class="obligatorio-rojo Msg_Correo"> *Por favor, rellene este campo</span>
             </div>
 
             <div class="input-contenedor">
                 <i class="fas fa-key icon"></i>
-                <input type="password" placeholder="Contraseña">
-
+                <input id="nuevacontrasenia" type="password" placeholder="Contraseña">
+                <span class="obligatorio-rojo Msg_NuevaContrasenia"> *Por favor, rellene este campo</span>
             </div>
 
             <div class="input-contenedor">
-                <i class="fas fa-envelope icon"></i>
-                <input type="text" placeholder="Pin de recuperacion de contraseña">
-
+                <i class="fas fa-key icon"></i>
+                <input id="confirmarcontrasenia" type="password" placeholder="Confirmar Contraseña">
+                <span class="obligatorio-rojo Msg_ConfirmarContrasenia"> *Por favor, rellene este campo</span>
             </div>
+
+            <div class="input-contenedor">
+                <i class="far fa-question-circle icon"></i>
+                <input id="pin" type="text" placeholder="Pin de recuperacion de contraseña">
+                <span class="obligatorio-rojo Msg_Pin"> *Por favor, rellene este campo</span>
+            </div>
+
             <input type="submit" value="Registrarme" class="button">
             <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
             <p>¿Ya tienes una cuenta?<a class="link" href="@Url.Action("Login","Login")"> Iniciar Sesion</a></p>
         </div>
     </form>
 </body>
-</html>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script type="text/javascript">
+    //Seccion de variables para ruta ajax
+    const RutaIniciarSesion = '@Url.Action("ValidarUsuario", "Login")';
+    const RutaInicio = '@Url.Action("Resumen", "Resumen")';
+</script>

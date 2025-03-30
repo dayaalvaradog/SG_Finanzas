@@ -2,6 +2,7 @@
 using _2_SGF_Modelo.Entidades.Login;
 using _5_SGF_Interfaces;
 using _6_SGF_Entidades.Catalogos;
+using _6_SGF_Entidades.Login;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -36,7 +37,8 @@ namespace _3_SGF_AccesoDatos
                        .Select(x => new RespuestaLogin
                        {
                            TipoRespuesta = x.TipoRespuesta,
-                           MensajeRespuesta = x.MensajeRespuesta
+                           MensajeRespuesta = x.MensajeRespuesta,
+                           CodUsuario = x.CodUsuario
                        })
                        .ToList().FirstOrDefault();
             }
@@ -46,7 +48,56 @@ namespace _3_SGF_AccesoDatos
             }
         }
 
+        public DatosUsuario ObtenerDatosUsuario(int Usuario)
+        {
+            try
+            {
+                var pUsuario = new SqlParameter("@Usuario", Usuario);
 
+                return context.usp_ObtenerDatosUsuario
+                       .FromSqlRaw("EXECUTE dbo.usp_ObtenerDatosUsuario {0}",
+                       pUsuario.Value)
+                       .AsNoTracking()
+                       .AsEnumerable()
+                       .Select(x => new DatosUsuario
+                       {
+                           CodUsuario = x.CodUsuario,
+                           NombreCompleto = x.NombreCompleto,
+                           CodTipo = x.CodTipo,
+                           CorreoElectronico = x.CorreoElectronico
+                       })
+                       .ToList().FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<PermisoUsuario> ObtenerPermisosUsuario(int Usuario)
+        {
+            try
+            {
+                var pUsuario = new SqlParameter("@Usuario", Usuario);
+
+                return context.usp_ObtenerPermisosUsuario
+                       .FromSqlRaw("EXECUTE dbo.usp_ObtenerPermisosUsuario {0}",
+                       pUsuario.Value)
+                       .AsNoTracking()
+                       .AsEnumerable()
+                       .Select(x => new PermisoUsuario
+                       {
+                           CodPermiso = x.CodPermiso,
+                           Descripcion = x.Descripcion,
+                           CodMenu = x.CodMenu
+                       })
+                       .ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
 
     }

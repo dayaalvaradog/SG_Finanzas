@@ -10,5 +10,6 @@ namespace _2_SGF_Modelo.Model
     {
         public int TipoRespuesta { get; set; }
         public string MensajeRespuesta { get; set; }
+        public int? CodUsuario { get; set; }
     }
 }

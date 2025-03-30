@@ -1,0 +1,36 @@
+﻿@{
+    Layout = "_Layout";
+}
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Resumen
+        <small>Financiero</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a><i class="fa fa-dashboard"></i> Inicio</a></li>
+        <li><a>Resumen</a></li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="box-header">
+        <h3 class="box-title">Hover Data Table</h3>
+    </div><!-- /.box-header -->
+    <div class="container">
+        <main role="main" class="pb-3">
+            
+        </main>
+    </div>
+</section>
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".treeview").removeClass(".active");
+            $("#liresumen").addClass("active");
+        });
+
+    </script>
+
+}

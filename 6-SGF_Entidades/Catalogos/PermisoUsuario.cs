@@ -11,6 +11,7 @@ namespace _6_SGF_Entidades.Catalogos
         public int CodPermiso { get; set; }
         public string Descripcion { get; set; }
         public string Detalle { get; set; }
+        public int CodMenu { get; set; }
         public bool Activo { get; set; }
 
         public PermisoUsuario()
@@ -18,6 +19,7 @@ namespace _6_SGF_Entidades.Catalogos
             CodPermiso = 0;
             Descripcion = string.Empty;
             Detalle = string.Empty;
+            CodMenu = 0;
             Activo = false;
         }
     }

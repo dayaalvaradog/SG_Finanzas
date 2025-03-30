@@ -10,10 +10,12 @@ namespace _2_SGF_Modelo.Entidades.Login
     {
         public int TipoRespuesta { get; set; }
         public string MensajeRespuesta { get; set; }
+        public int? CodUsuario { get; set; }
         public RespuestaLogin()
         {
             TipoRespuesta = 0;
             MensajeRespuesta = string.Empty;
+            CodUsuario = 0;
         }
     }
 }
