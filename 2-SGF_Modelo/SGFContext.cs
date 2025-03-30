@@ -34,6 +34,10 @@ public partial class SGFContext : DbContext
     public virtual DbSet<usp_ValidarUsuario> usp_ValidarUsuario { get; set; }
     public virtual DbSet<usp_ObtenerDatosUsuario> usp_ObtenerDatosUsuario { get; set; }
     public virtual DbSet<usp_ObtenerPermisosUsuario> usp_ObtenerPermisosUsuario { get; set; }
+    public virtual DbSet<usp_ObtenerCuentasUsuario> usp_ObtenerCuentasUsuario { get; set; }
+    public virtual DbSet<usp_ObtenerEstadoCuenta> usp_ObtenerEstadoCuenta { get; set; }
+    public virtual DbSet<usp_RecuperarContraseña> usp_RecuperarContraseña { get; set; }
+    public virtual DbSet<usp_ObtenerEstadoUsuario> usp_ObtenerEstadoUsuario { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseSqlServer(_connectionString, providerOptions => { providerOptions.EnableRetryOnFailure(); });
@@ -77,6 +81,30 @@ public partial class SGFContext : DbContext
             });
 
         modelBuilder.Entity<usp_ObtenerPermisosUsuario>(
+            entity =>
+            {
+                entity.HasNoKey();
+            });
+        
+        modelBuilder.Entity<usp_ObtenerCuentasUsuario>(
+            entity =>
+            {
+                entity.HasNoKey();
+            });
+
+        modelBuilder.Entity<usp_ObtenerEstadoCuenta>(
+            entity =>
+            {
+                entity.HasNoKey();
+            });
+
+        modelBuilder.Entity<usp_RecuperarContraseña>(
+            entity =>
+            {
+                entity.HasNoKey();
+            });
+
+        modelBuilder.Entity<usp_ObtenerEstadoUsuario>(
             entity =>
             {
                 entity.HasNoKey();

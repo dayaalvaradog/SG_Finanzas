@@ -14,5 +14,7 @@ namespace _5_SGF_Interfaces
         public RespuestaLogin ValidarUsuario(string Usuario, string Contraseña);
         public DatosUsuario ObtenerDatosUsuario(int Usuario);
         public List<PermisoUsuario> ObtenerPermisosUsuario(int Usuario);
+        public bool RegistrarUsuario(DatosRegistroUsuario datos);
+        public RespuestaLogin RecuperarContraseña(int Pin, string Contraseña, string IdUsuario, string Correo);
     }
 }
