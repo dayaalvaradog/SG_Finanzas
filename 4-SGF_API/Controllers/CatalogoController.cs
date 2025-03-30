@@ -17,7 +17,7 @@ namespace _4_SGF_API.Controllers
             catalogo = _catalogos;
         }
 
-        [HttpGet("Categorias")]
+        [HttpGet("ObtenerCategorias")]
         public IActionResult ObtenerCategorias()
         {
             Respuesta<List<Categoria>> response = new Respuesta<List<Categoria>>();
@@ -35,7 +35,7 @@ namespace _4_SGF_API.Controllers
             }
         }
 
-        [HttpGet("Clasificaciones")]
+        [HttpGet("ObtenerClasificaciones")]
         public IActionResult ObtenerClasificaciones()
         {
             Respuesta<List<Clasificacion>> response = new Respuesta<List<Clasificacion>>();
@@ -53,7 +53,7 @@ namespace _4_SGF_API.Controllers
             }
         }
 
-        [HttpGet("TiposUsuario")]
+        [HttpGet("ObtenerTiposUsuario")]
         public IActionResult ObtenerTiposUsuario()
         {
             Respuesta<List<TiposUsuario>> response = new Respuesta<List<TiposUsuario>>();
@@ -71,7 +71,7 @@ namespace _4_SGF_API.Controllers
             }
         }
 
-        [HttpGet("TiposPermiso")]
+        [HttpGet("ObtenerTiposPermiso")]
         public IActionResult ObtenerTiposPermiso()
         {
             Respuesta<List<PermisoUsuario>> response = new Respuesta<List<PermisoUsuario>>();

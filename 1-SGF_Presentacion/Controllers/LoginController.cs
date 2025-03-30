@@ -42,17 +42,18 @@ namespace _1_SGF_Presentacion.Controllers
             {
                 resultado = await LoginModel.ValidarUsuario(Usuario, Contraseña);
                 HttpContext.Session.Remove("Usuario");
+                HttpContext.Session.Remove("Catalogos");
 
                 if (resultado.Result != null)
                 {
                     if ((resultado.Result.TipoRespuesta == 1) && (resultado.Result.CodUsuario.HasValue))
                     {
-                        datosUsuario = await LoginModel.ObtenerDatosUsuario(resultado.Result.CodUsuario.Value); 
+                        datosUsuario = ObtenerDatosUsuario(resultado.Result.CodUsuario.Value).Result; 
                         if (datosUsuario.Result != null)
                         {
                             UsuarioAutenticado.datosUsuario = datosUsuario.Result;
                         }
-                        var permisosUsuario = await LoginModel.ObtenerPermisosUsuario(resultado.Result.CodUsuario.Value); 
+                        var permisosUsuario = ObtenerPermisosUsuario(resultado.Result.CodUsuario.Value).Result; 
                         if (permisosUsuario.Result != null)
                         {
                             UsuarioAutenticado.permisosUsuario = permisosUsuario.Result;
@@ -61,6 +62,11 @@ namespace _1_SGF_Presentacion.Controllers
                         HttpContext.Session.SetString("Usuario", JsonConvert.SerializeObject(UsuarioAutenticado));
                         ViewBag.Usuario = UsuarioAutenticado;
                     }
+                    //se carga la lista de catálogos
+                    ListaCatalogos catalogos = CatalogoController.CargarCatalogos();
+                    ViewBag.Catalogos = catalogos;
+                    HttpContext.Session.SetString("Catalogos", JsonConvert.SerializeObject(catalogos));
+
                     return resultado;
                 }
                 else
