@@ -12,9 +12,10 @@ namespace _6_SGF_Entidades.Movimiento
         public int CodCuenta { get; set; }
         public int CodCategoria { get; set; }
         public int CodClasificacion { get; set; }
-        public float Monto { get; set; }
+        public double Monto { get; set; }
         public DateTime Fecha { get; set; }
         public int CodUsuario { get; set; }
+        public bool EsActivo { get; set; }
 
         public Movimiento()
         {
@@ -25,6 +26,7 @@ namespace _6_SGF_Entidades.Movimiento
             Monto = 0;
             Fecha = DateTime.Now;
             CodUsuario = 0;
+            EsActivo = true;
         }
     }
 }

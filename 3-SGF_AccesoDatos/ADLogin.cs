@@ -2,12 +2,14 @@
 using _2_SGF_Modelo.Entidades.Login;
 using _5_SGF_Interfaces;
 using _6_SGF_Entidades.Catalogos;
+using _6_SGF_Entidades.Cuenta;
 using _6_SGF_Entidades.Login;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -30,7 +32,7 @@ namespace _3_SGF_AccesoDatos
                 var pContraseña = new SqlParameter("@Contraseña", Contraseña);
 
                 return context.usp_ValidarUsuario
-                       .FromSqlRaw("EXECUTE dbo.usp_ValidarUsuario {0}, {1}", 
+                       .FromSqlRaw("EXECUTE dbo.usp_ValidarUsuario {0}, {1}",
                        pUsuario.Value, pContraseña.Value)
                        .AsNoTracking()
                        .AsEnumerable()
@@ -74,11 +76,11 @@ namespace _3_SGF_AccesoDatos
             }
         }
 
-        public List<PermisoUsuario> ObtenerPermisosUsuario(int Usuario)
+        public List<PermisoUsuario> ObtenerPermisosUsuario(int usuario)
         {
             try
             {
-                var pUsuario = new SqlParameter("@Usuario", Usuario);
+                var pUsuario = new SqlParameter("@Usuario", usuario);
 
                 return context.usp_ObtenerPermisosUsuario
                        .FromSqlRaw("EXECUTE dbo.usp_ObtenerPermisosUsuario {0}",
@@ -98,6 +100,76 @@ namespace _3_SGF_AccesoDatos
                 throw ex;
             }
         }
+
+        public bool RegistrarUsuario(DatosRegistroUsuario usuario)
+        {
+            bool respuesta = false;
+            var strategy = context.Database.CreateExecutionStrategy();
+            strategy.Execute(() =>
+            {
+                //Se crea el scope de la transaccion
+                using (var transaction = context.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        context.Database.ExecuteSqlRaw("EXEC dbo.usp_RegistrarUsuario   @IdUsuario, " +
+                                                                                        "@NombreCompleto, " +
+                                                                                        "@Contraseña, " +
+                                                                                        "@Correo, " +
+                                                                                        "@Pin, " +
+                                                                                        "@EsActivo, " +
+                                                                                        "@CodTipo, " +
+                                                                                        "@CodUsuario",
+                                        new SqlParameter("@IdUsuario", usuario.IdUsuario),
+                                        new SqlParameter("@NombreCompleto", usuario.NombreCompleto),
+                                        new SqlParameter("@Contraseña", usuario.Contraseña),
+                                        new SqlParameter("@Correo", usuario.Correo),
+                                        new SqlParameter("@Pin", usuario.Pin),
+                                        new SqlParameter("@EsActivo", usuario.EsActivo),
+                                        new SqlParameter("@CodTipo", usuario.TipoUsuario),
+                                        new SqlParameter("@CodUsuario", usuario.CodUsuario));
+                        context.SaveChanges();
+                        transaction.Commit();
+                        respuesta = true;
+                    }
+                    catch (Exception)
+                    {
+                        transaction.Rollback();
+                        throw;
+                    }
+                }
+            });
+            return respuesta;
+        }
+
+        public RespuestaLogin RecuperarContraseña(Usuario usuario)
+        {
+            try
+            {
+                var pPin = new SqlParameter("@Pin", usuario.datosUsuario.Pin);
+                var pContrasena = new SqlParameter("@Contrasena", usuario.datosUsuario.Contraseña);
+                var pIdUsuario = new SqlParameter("@IdUsuario", usuario.datosUsuario.IdUsuario);
+                var pCorreo = new SqlParameter("@Correo", usuario.datosUsuario.CorreoElectronico);
+
+                return context.usp_RecuperarContraseña
+                       .FromSqlRaw("EXECUTE dbo.usp_RecuperarContraseña {0},{1},{2},{3}",
+                       pPin.Value, pContrasena.Value, pIdUsuario.Value, pCorreo.Value)
+                       .AsNoTracking()
+                       .AsEnumerable()
+                       .Select(x => new RespuestaLogin
+                       {
+                           TipoRespuesta = x.TipoRespuesta,
+                           MensajeRespuesta = x.MensajeRespuesta,
+                           CodUsuario = x.CodUsuario
+                       })
+                       .ToList().FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
 
 
     }

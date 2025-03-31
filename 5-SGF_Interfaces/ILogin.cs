@@ -15,6 +15,6 @@ namespace _5_SGF_Interfaces
         public DatosUsuario ObtenerDatosUsuario(int Usuario);
         public List<PermisoUsuario> ObtenerPermisosUsuario(int Usuario);
         public bool RegistrarUsuario(DatosRegistroUsuario datos);
-        public RespuestaLogin RecuperarContraseña(int Pin, string Contraseña, string IdUsuario, string Correo);
+        public RespuestaLogin RecuperarContraseña(Usuario usuario);
     }
 }

@@ -15,6 +15,7 @@ namespace _6_SGF_Entidades.Login
         public int Pin { get; set; }
         public int TipoUsuario { get; set; }
         public bool EsActivo { get; set; }
+        public int? CodUsuario { get; set; }
         public DatosRegistroUsuario()
         {
             NombreCompleto = string.Empty;
@@ -24,6 +25,7 @@ namespace _6_SGF_Entidades.Login
             Pin = 0;
             TipoUsuario = 0;
             EsActivo = false;
+            CodUsuario = null;
         }
     }
 }

@@ -9,7 +9,7 @@ namespace _5_SGF_Interfaces
 {
     public interface IMovimiento
     {
-        public bool InsertarMovimiento(IMovimiento movimiento);
+        public bool InsertarMovimiento(Movimiento movimiento);
         public List<Movimiento> ObtenerMovimientos(int CodUsuario);
     }
 }

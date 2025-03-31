@@ -1,4 +1,5 @@
 ﻿using _2_SGF_Modelo.Model;
+using _6_SGF_Entidades.Movimiento;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -38,6 +39,7 @@ public partial class SGFContext : DbContext
     public virtual DbSet<usp_ObtenerEstadoCuenta> usp_ObtenerEstadoCuenta { get; set; }
     public virtual DbSet<usp_RecuperarContraseña> usp_RecuperarContraseña { get; set; }
     public virtual DbSet<usp_ObtenerEstadoUsuario> usp_ObtenerEstadoUsuario { get; set; }
+    public virtual DbSet<usp_ObtenerMovimientos> usp_ObtenerMovimientos { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseSqlServer(_connectionString, providerOptions => { providerOptions.EnableRetryOnFailure(); });
@@ -105,6 +107,12 @@ public partial class SGFContext : DbContext
             });
 
         modelBuilder.Entity<usp_ObtenerEstadoUsuario>(
+            entity =>
+            {
+                entity.HasNoKey();
+            });
+
+        modelBuilder.Entity<usp_ObtenerMovimientos>(
             entity =>
             {
                 entity.HasNoKey();

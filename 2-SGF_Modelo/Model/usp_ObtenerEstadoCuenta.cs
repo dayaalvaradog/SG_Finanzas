@@ -8,8 +8,8 @@ namespace _2_SGF_Modelo.Model
 {
     public class usp_ObtenerEstadoCuenta
     {
-        public float Ingresos { get; set; }
-        public float Gastos { get; set; }
-        public float Saldo { get; set; }
+        public decimal Ingresos { get; set; }
+        public decimal Gastos { get; set; }
+        public decimal Saldo { get; set; }
     }
 }

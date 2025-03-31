@@ -10,7 +10,7 @@ namespace _5_SGF_Interfaces
     public interface ICuenta
     {
         public List<CuentaBancaria> ObtenerCuentasUsuario(int CodUsuario);
-        public CuentaBancaria ObtenerEstadoCuenta(int CodCuenta);
+        public EstadoCuenta ObtenerEstadoCuenta(int CodCuenta);
         public EstadoCuenta ObtenerEstadoUsuario(int CodUsuario);
 
     }

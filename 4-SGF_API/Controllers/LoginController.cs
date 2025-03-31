@@ -73,5 +73,41 @@ namespace _4_SGF_API.Controllers
                 return BadRequest(response);
             }
         }
+
+        [HttpPost("RegistrarUsuario")]
+        public IActionResult RegistrarUsuario(DatosRegistroUsuario datos)
+        {
+            Respuesta<bool> response = new Respuesta<bool>();
+            try
+            {
+                response.Result = login.RegistrarUsuario(datos);
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                response.TextError = (ex.InnerException != null ? ex.InnerException.Message : ex.Message);
+                response.NumError = 1;
+                WriteLog.Log("Login RegistrarUsuario", response.TextError, DatosAppSettingsApi.GetData("Url:LogApi"), "");
+                return BadRequest(response);
+            }
+        }
+
+        [HttpPost("RecuperarContraseña")]
+        public IActionResult RecuperarContraseña(Usuario usuario)
+        {
+            Respuesta<RespuestaLogin> response = new Respuesta<RespuestaLogin>();
+            try
+            {
+                response.Result = login.RecuperarContraseña(usuario);
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                response.TextError = (ex.InnerException != null ? ex.InnerException.Message : ex.Message);
+                response.NumError = 1;
+                WriteLog.Log("Login RecuperarContraseña", response.TextError, DatosAppSettingsApi.GetData("Url:LogApi"), "");
+                return BadRequest(response);
+            }
+        }
     }
 }
