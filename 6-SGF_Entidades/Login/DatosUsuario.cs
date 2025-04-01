@@ -13,7 +13,7 @@ namespace _6_SGF_Entidades.Login
         public string NombreCompleto { get; set; }
         public int CodTipo { get; set; }
         public string CorreoElectronico { get; set; }
-        public string? Contraseña { get; set; }
+        public string? Contrasenia { get; set; }
         public int? Pin { get; set; }
         public bool EsActivo { get; set; }
 
@@ -24,7 +24,7 @@ namespace _6_SGF_Entidades.Login
             NombreCompleto = string.Empty;
             CodTipo = 0;
             CorreoElectronico = string.Empty;
-            Contraseña = null;
+            Contrasenia = null;
             Pin = null;
             EsActivo = true;
         }

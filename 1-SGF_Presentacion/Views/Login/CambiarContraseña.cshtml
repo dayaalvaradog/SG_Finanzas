@@ -4,67 +4,50 @@
     <title></title>
     <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
-    <link rel="stylesheet" href="~/css/Registrarse.css">
+    <link rel="stylesheet" href="~/css/Contrasenia.css">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 }
 <body>
     <form class="formulario">
 
-        <h1>Registrarse</h1>
+        <h1>Recuperar contraseña</h1>
         <div class="contenedor">
-
-            <div id="div_usuario" class="input-group-prepend">
-                <div class="input-group-prepend">
-                    <div class="form-control">
-                        <i class="fas fa-user icon"></i>
-                        <input id="nombrecompleto" type="text" placeholder="Nombre Completo">
+            <div class="form-group">
+                <div class="col-md-12">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Radio_idusuario" onchange="Cambiar('1')" checked>
+                        <label class="form-check-label" for="inlineRadio1">Nombre de usuario</label>
                     </div>
-                    <span class="obligatorio-rojo Msg_nombrecompleto"> *Por favor, rellene este campo</span>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Radio_correo" onchange="Cambiar('2')">
+                        <label class="form-check-label" for="inlineRadio2">Correo Electrónico</label>
+                    </div>
                 </div>
             </div>
+            <br />
 
             <div id="div_usuario" class="input-group-prepend">
                 <div class="input-group-prepend">
                     <div class="form-control">
                         <i class="fas fa-user-cog icon"></i>
-                        <input id="nombreusuario" type="text" placeholder="Nombre de usuario">
+                        <input id="idusuario" type="text" placeholder="Nombre de usuario">
                     </div>
-                    <span class="obligatorio-rojo Msg_nombreusuario"> *Por favor, rellene este campo</span>
+                    <span class="obligatorio-rojo Msg_idusuario"> *Por favor, indique un usuario válido</span>
                 </div>
             </div>
 
-            <div id="div_usuario" class="input-group-prepend">
+            <div id="divCorreo" class="input-group-prepend" style="display:none;">
                 <div class="input-group-prepend">
                     <div class="form-control">
                         <i class="fas fa-envelope icon"></i>
-                        <input id="correo" type="text" placeholder="Correo Electronico">
+                        <input id="correoelect" type="text" placeholder="Correo Electronico">
                     </div>
-                    <span class="obligatorio-rojo Msg_correo"> *Por favor, digite un correo electrónico válido</span>
+                    <span class="obligatorio-rojo Msg_correoelect"> *Por favor, digite un correo electrónico válido</span>
                 </div>
             </div>
 
-            <div id="div_usuario" class="input-group-prepend">
-                <div class="input-group-prepend">
-                    <div class="form-control">
-                        <i class="fas fa-key icon"></i>
-                        <input id="nuevacontrasenia" type="password" placeholder="Contraseña">
-                    </div>
-                    <span class="obligatorio-rojo Msg_nuevacontrasenia"> *Por favor, rellene este campo</span>
-                </div>
-            </div>
-
-            <div id="div_usuario" class="input-group-prepend">
-                <div class="input-group-prepend">
-                    <div class="form-control">
-                        <i class="fas fa-key icon"></i>
-                        <input id="confirmarcontrasenia" type="password" placeholder="Confirmar Contraseña">
-                    </div>
-                    <span class="obligatorio-rojo Msg_confirmarcontrasenia"> *Por favor, rellene este campo</span>
-                </div>
-            </div>
-
-            <div id="div_usuario" class="input-group-prepend">
+            <div class="input-group-prepend">
                 <div class="input-group-prepend">
                     <div class="form-control">
                         <i class="far fa-question-circle icon"></i>
@@ -74,10 +57,28 @@
                 </div>
             </div>
 
-            <input id="btnRegistrarse" onclick="Registrarse();" value="Registrarme" class="button">
+            <div class="input-group-prepend">
+                <div class="input-group-prepend">
+                    <div class="form-control">
+                        <i class="fas fa-key icon"></i>
+                        <input id="contrasenianueva" type="password" placeholder="Contraseña Nueva">
+                    </div>
+                    <span class="obligatorio-rojo Msg_contrasenianueva"> *Por favor, rellene este campo</span>
+                </div>
+            </div>
+
+            <div class="input-group-prepend">
+                <div class="input-group-prepend">
+                    <div class="form-control">
+                        <i class="fas fa-key icon"></i>
+                        <input id="confirmarcontrasenianueva" type="password" placeholder="Confirmar Contraseña Nueva">
+                    </div>
+                    <span class="obligatorio-rojo Msg_confirmarcontrasenianueva"> *Por favor, rellene este campo</span>
+                </div>
+            </div>
+
+            <input id="btnRecuperar" onclick="CambiarContrasenia();" value="Cambiar contraseña" class="button">
             <div id="liveAlertPlaceholder"></div>
-            <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
-            <p>¿No tienes una cuenta? <a class="link" href="@Url.Action("Registrarse","Login")"> Registrarse </a><br /></p>
             <p>¿Ya tienes una cuenta?<a class="link" href="@Url.Action("Login","Login")"> Iniciar Sesion</a></p>
         </div>
     </form>
@@ -86,7 +87,7 @@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
-<script src="~/js/Registrarse.js" asp-append-version="true"></script>
+<script src="~/js/Contrasenia.js" asp-append-version="true"></script>
 <script type="text/javascript">
     //Seccion de variables para ruta ajax
     const RutaIniciarSesion = '@Url.Action("Login", "Login")';
@@ -94,4 +95,5 @@
     const RutaValidarCorreoExiste = '@Url.Action("ValidarCorreoExiste", "Login")';
     const RutaValidaIdUsuarioExiste = '@Url.Action("ValidaIdUsuarioExiste", "Login")';
     const RutaRegistrarse = '@Url.Action("RegistrarUsuario", "Login")';
+    const RutaCambiarContrasenia = '@Url.Action("RecuperarContrasenia", "Login")';
 </script>

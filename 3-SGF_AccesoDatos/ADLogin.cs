@@ -104,14 +104,14 @@ namespace _3_SGF_AccesoDatos
         public bool RegistrarUsuario(DatosRegistroUsuario usuario)
         {
             bool respuesta = false;
-            //var strategy = context.Database.CreateExecutionStrategy();
-            //strategy.Execute(() =>
-            //{
-            //    //Se crea el scope de la transaccion
-            //    using (var transaction = context.Database.BeginTransaction())
-            //    {
-                    try
-                    {
+            var strategy = context.Database.CreateExecutionStrategy();
+            strategy.Execute(() =>
+            {
+            //Se crea el scope de la transaccion
+            using (var transaction = context.Database.BeginTransaction())
+            {
+                try
+            {
                         context.Database.ExecuteSqlRaw("EXEC dbo.usp_RegistrarUsuario   @IdUsuario, " +
                                                                                         "@NombreCompleto, " +
                                                                                         "@Contraseña, " +
@@ -129,29 +129,29 @@ namespace _3_SGF_AccesoDatos
                                         new SqlParameter("@CodTipo", usuario.TipoUsuario),
                                         new SqlParameter("@CodUsuario", usuario.CodUsuario));
                         context.SaveChanges();
-                        //transaction.Commit();
-                        //respuesta = true;
+                        transaction.Commit();
+                        respuesta = true;
                     }
                     catch (Exception)
                     {
                         //transaction.Rollback();
                         throw;
                     }
-            //    }
-            //});
+                }
+            });
             return respuesta;
         }
 
-        public RespuestaLogin RecuperarContraseña(Usuario usuario)
+        public RespuestaLogin RecuperarContraseña(DatosUsuario usuario)
         {
             try
             {
-                var pPin = new SqlParameter("@Pin", usuario.datosUsuario.Pin);
-                var pContrasena = new SqlParameter("@Contrasena", usuario.datosUsuario.Contraseña);
-                var pIdUsuario = new SqlParameter("@IdUsuario", usuario.datosUsuario.IdUsuario);
-                var pCorreo = new SqlParameter("@Correo", usuario.datosUsuario.CorreoElectronico);
+                var pPin = new SqlParameter("@Pin", usuario.Pin);
+                var pContrasena = new SqlParameter("@Contrasena", usuario.Contrasenia);
+                var pIdUsuario = new SqlParameter("@IdUsuario", usuario.IdUsuario);
+                var pCorreo = new SqlParameter("@Correo", usuario.CorreoElectronico);
 
-                return context.usp_RecuperarContraseña
+                RespuestaLogin resp = context.usp_RecuperarContraseña
                        .FromSqlRaw("EXECUTE dbo.usp_RecuperarContraseña {0},{1},{2},{3}",
                        pPin.Value, pContrasena.Value, pIdUsuario.Value, pCorreo.Value)
                        .AsNoTracking()
@@ -163,6 +163,19 @@ namespace _3_SGF_AccesoDatos
                            CodUsuario = x.CodUsuario
                        })
                        .ToList().FirstOrDefault();
+                if (resp.TipoRespuesta > 0)
+                {
+                    return resp;
+                }
+                else
+                {
+                    return new RespuestaLogin
+                    {
+                        TipoRespuesta = 0,
+                        MensajeRespuesta = "No se pudo recuperar la contraseña",
+                        CodUsuario = 0
+                    };
+                }
             }
             catch (Exception ex)
             {

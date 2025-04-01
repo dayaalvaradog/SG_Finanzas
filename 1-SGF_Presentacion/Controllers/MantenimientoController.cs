@@ -23,7 +23,7 @@ namespace _1_SGF_Presentacion.Controllers
             {
                 if (cuentaBancaria != null)
                 {
-                    resultado = await MantenimientoModel.InsertarCuenta(cuentaBancaria);
+                    //resultado = await MantenimientoModel.InsertarCuenta(cuentaBancaria);
 
                     //Se valida si el resultado es correcto
                     if (resultado.Result != false)

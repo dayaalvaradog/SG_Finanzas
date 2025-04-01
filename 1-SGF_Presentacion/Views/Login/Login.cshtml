@@ -49,20 +49,21 @@
                         <input id="btnLogin" onclick="IniciarSesion();" value="Login" class="button">
                         <div id="liveAlertPlaceholder"></div>
                         <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
-                        <p>¿No tienes una cuenta? <a class="link" href="@Url.Action("Registrarse","Login")"> Registrarse </a></p>
+                        <p>¿No tienes una cuenta? <a class="link" href="@Url.Action("Registrarse","Login")"> Registrarse </a><br/></p>
+                        <p><a class="link" href="@Url.Action("CambiarContraseña","Login")"> Recuperar contraseña </a></p>
                     </div>
                 </div>
             </div>
         </form>
     </div>
 
-    <script src="~/js/Login.js" asp-append-version="true"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/Login.js" asp-append-version="true"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script type="text/javascript">
         //Seccion de variables para ruta ajax
-        const RutaIniciarSesion = '@Url.Action("ValidarUsuario", "Login")';
+        const RutaIniciarSesion = '@Url.Action("Login", "Login")';
         const RutaInicio = '@Url.Action("Resumen", "Resumen")';
     </script>
 </body>

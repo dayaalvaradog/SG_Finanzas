@@ -1,6 +1,9 @@
 using _1_SGF_Presentacion.Filters;
 using _2_SGF_Modelo.Entidades;
 using Microsoft.AspNetCore.Http.Features;
+using _3_SGF_AccesoDatos;
+using _5_SGF_Interfaces;
+using _7_SGF_Comun.API;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,6 +32,9 @@ builder.Services.AddHttpClient("API", client =>
 {
     client.Timeout = TimeSpan.FromSeconds(60); // Configura el tiempo de espera
 });
+builder.Services.AddHttpClient<ISGFService, APIService>();
+SD.SGFAPIBase = builder.Configuration["Url:API"];
+builder.Services.AddScoped<ISGFService, APIService>();
 
 builder.Services.Configure<List<SpecialDate>>(builder.Configuration.GetSection("SpecialDates"));
 builder.Services.AddTransient<SpecialDatesFilter>();

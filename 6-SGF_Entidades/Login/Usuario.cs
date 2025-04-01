@@ -10,7 +10,7 @@ namespace _6_SGF_Entidades.Login
     public class Usuario
     { 
         public DatosUsuario datosUsuario { get; set; }
-        public List<PermisoUsuario> permisosUsuario { get; set; }
+        public List<PermisoUsuario>? permisosUsuario { get; set; }
 
     }
 }

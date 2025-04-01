@@ -10,25 +10,6 @@ namespace _1_SGF_Presentacion.Models
 {
     public class MovimientoModel
     {
-        public static async Task<Respuesta<bool>> InsertarMovimiento(Movimiento datos)
-        {
-            Respuesta<bool> result = new Respuesta<bool>();
-            try
-            {
-                string json = JsonConvert.SerializeObject(datos);
-                // Se crea el objeto API para consumir el servicio
-                API<Respuesta<bool>> servicio = new API<Respuesta<bool>>(new Uri($"{DatosAppSettings.GetUrlAPI()}/Movimiento/InsertarMovimiento"));
-                result = await servicio.ObtenerResultadoAsync("POST", json);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-
-            // Se retorna el resultado
-            return result;
-        }
-
         public static async Task<Respuesta<List<Movimiento>>> ObtenerMovimientos(int usuario)
         {
             // Se crea el objeto que se va a devolver

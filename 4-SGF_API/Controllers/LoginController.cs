@@ -92,21 +92,21 @@ namespace _4_SGF_API.Controllers
             }
         }
 
-        [HttpPost("RecuperarContraseña")]
-        public IActionResult RecuperarContraseña(Usuario usuario)
+        [HttpGet("RecuperarContrasenia")]
+        public Respuesta<RespuestaLogin> RecuperarContrasenia(DatosUsuario datos)
         {
             Respuesta<RespuestaLogin> response = new Respuesta<RespuestaLogin>();
             try
             {
-                response.Result = login.RecuperarContraseña(usuario);
-                return Ok(response);
+                response.Result = login.RecuperarContraseña(datos);
+                return response;
             }
             catch (Exception ex)
             {
                 response.TextError = (ex.InnerException != null ? ex.InnerException.Message : ex.Message);
                 response.NumError = 1;
                 WriteLog.Log("Login RecuperarContraseña", response.TextError, DatosAppSettingsApi.GetData("Url:LogApi"), "");
-                return BadRequest(response);
+                return response;
             }
         }
 

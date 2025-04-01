@@ -152,14 +152,14 @@ function Registrarse() {
 
     var datosUsuario =
     {
-        codUsuario: 0,
-        idUsuario: $("#nombreusuario").val().toString(),
-        nombreCompleto: $("#nombrecompleto").val().toString(),
-        tipoUsuario: 1,
-        correo: $("#correo").val(),
-        contrasenia: $("#nuevacontrasenia").val().toString(),
-        pin: parseInt($("#pin").val()),
-        esActivo: Boolean(true)
+        CodUsuario: 0,
+        IdUsuario: $("#nombreusuario").val().toString(),
+        NombreCompleto: $("#nombrecompleto").val().toString(),
+        TipoUsuario: 1,
+        Correo: $("#correo").val(),
+        Contrasenia: $("#nuevacontrasenia").val().toString(),
+        Pin: parseInt($("#pin").val()),
+        EsActivo: Boolean(true)
     };
 
     if (!eserror) {
@@ -167,8 +167,7 @@ function Registrarse() {
         $.ajax({
             type: "POST",
             url: RutaRegistrarse,
-            contentType: 'application/json',
-            data: JSON.stringify(datosUsuario),
+            data: { datos: JSON.stringify(datosUsuario) },
             dataType: "json",
             async: false,
             success: function (data) {
@@ -176,8 +175,8 @@ function Registrarse() {
                     if (data.result == true) {
                         mostrarMensajeNotificacion("Usuario registrado correctamente, ya puede iniciar sesión", 1);
                         setTimeout(function () {
-                            window.location.href = RutaIniciarSesión;
-                        }, 2000);
+                            window.location.href = RutaIniciarSesion;
+                        }, 3000);
                     }
                     else {
                         mostrarMensajeNotificacion("El usuario indicado no ya existe", 2);

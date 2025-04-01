@@ -1,11 +1,6 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Reflection.Metadata.Ecma335;
+﻿using _2_SGF_Modelo.Entidades;
+using Newtonsoft.Json;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace _7_SGF_Comun.API
 {

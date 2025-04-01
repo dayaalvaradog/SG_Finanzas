@@ -77,48 +77,6 @@ namespace _1_SGF_Presentacion.Models
             return result;
         }
 
-        public static async Task<Respuesta<bool>> RegistrarUsuario(DatosRegistroUsuario usuario)
-        {
-            Respuesta<bool> result = new Respuesta<bool>();
-            try
-            {
-                API<Respuesta<bool>> servicio = new API<Respuesta<bool>>(new Uri($"{DatosAppSettings.GetUrlAPI()}/Login/RegistrarUsuario"));
-                try
-                {
-                    string json = JsonConvert.SerializeObject(usuario);
-                    result = await servicio.ObtenerResultadoAsync("POST", json);
-                }
-                catch (Exception)
-                {
-                    throw;
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-
-            return result;
-        }
-
-        public static async Task<Respuesta<bool>> RecuperarContraseña(Usuario usuario)
-        {
-            Respuesta<bool> result = new Respuesta<bool>();
-            try
-            {
-                string json = JsonConvert.SerializeObject(usuario);
-                // Se crea el objeto API para consumir el servicio
-                API<Respuesta<bool>> servicio = new API<Respuesta<bool>>(new Uri($"{DatosAppSettings.GetUrlAPI()}/Login/RecuperarContraseña"));
-                result = await servicio.ObtenerResultadoAsync("POST", json);
-            }
-            catch (Exception)
-            {
-                throw; 
-            }
-
-            // Se retorna el resultado
-            return result;
-        }
         public static async Task<Respuesta<bool>> ValidaIdUsuarioExiste(string usuario)
         {
             Respuesta<bool> result = new Respuesta<bool>();

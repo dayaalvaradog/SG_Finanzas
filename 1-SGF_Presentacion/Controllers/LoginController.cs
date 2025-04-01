@@ -5,7 +5,9 @@ using _2_SGF_Modelo.Entidades.Login;
 using _4_SGF_API.Controllers;
 using _6_SGF_Entidades.Catalogos;
 using _6_SGF_Entidades.Login;
+using _7_SGF_Comun.API;
 using _8_SGF_Log;
+using Azure;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.Extensions.Options;
@@ -17,10 +19,11 @@ namespace _1_SGF_Presentacion.Controllers
 {
     public class LoginController : Controller
     {
-        private readonly List<SpecialDate> _SpecialDates;
-        public LoginController(IOptionsMonitor<List<SpecialDate>> options)
+        private readonly ISGFService _service;
+
+        public LoginController(ISGFService sgfService)
         {
-            _SpecialDates = options.CurrentValue;
+            _service = sgfService;
         }
 
         public IActionResult Login()
@@ -29,6 +32,11 @@ namespace _1_SGF_Presentacion.Controllers
         }
 
         public IActionResult Registrarse()
+        {
+            return View();
+        }
+
+        public IActionResult CambiarContraseña()
         {
             return View();
         }
@@ -156,120 +164,78 @@ namespace _1_SGF_Presentacion.Controllers
         }
 
         [HttpPost]
-        public async Task<Respuesta<bool>> RegistrarUsuario([FromBody] DatosRegistroUsuario datos)
+        public async Task<Respuesta<bool>> RegistrarUsuario(string datos)
         {
-
-            var resultado = new Respuesta<bool>();
-
             try
             {
-                //Se deserializa el objeto de validacion
-                //DatosRegistroUsuario? DatosUsuario = JsonConvert.DeserializeObject<DatosRegistroUsuario>(datos);
-                if (datos != null)
+                DatosRegistroUsuario? DatosUsuario = JsonConvert.DeserializeObject<DatosRegistroUsuario>(datos);
+                if (ModelState.IsValid)
                 {
-                    resultado = await LoginModel.RegistrarUsuario(datos);
+                    ResponseDto? response = await _service.RegistrarUsuario(DatosUsuario);
 
-                    //Se valida si el resultado es correcto
-                    if (resultado.NumError == 0)
+                    if (response != null && response.IsSuccess == true)
                     {
-                        //Se retorna el resultado
-                        return resultado;
+                        return new Respuesta<bool> { Result = true };
                     }
-                    else
-                    {
-                        resultado.TextError = "Ocurrió un error en los datos del usuario";
-                        resultado.NumError = 2;
-                        resultado.Result = false;
-                        //Se retorna el resultado
-                        return resultado;
-                    }
+
                 }
-                else
-                {
-                    WriteLog.Log("RegistrarUsuario", resultado.TextError, DatosAppSettings.GetData("Url:Log"), $"Datos: {datos}");
-                    resultado.TextError = "Ocurrió un error en los datos del usuario";
-                    resultado.NumError = 3;
-                    resultado.Result = false;
-                    return resultado;
-                }
+                return new Respuesta<bool> { Result = false, NumError = 1, TextError = "Ocurrió un error en el registro del usuario" };
             }
             catch (Exception ex)
             {
                 WriteLog.Log("RegistrarUsuario", (ex.InnerException != null ? ex.InnerException.Message : ex.Message),
                     DatosAppSettings.GetData("Url:Log"), $"Datos: {datos}");
-                resultado.TextError = "Ocurrió un error al consultar la información";
-                resultado.NumError = 2;
-                resultado.Result = false;
+                return new Respuesta<bool> { Result = false, NumError = 1, TextError = "Ocurrió un error en el registro del usuario" };
 
-                return resultado;
             }
         }
-        //[HttpPost]
-        //public async Task<Respuesta<bool>> RegistrarUsuario(string usuario)
-        //{
-        //    var resultado = new Respuesta<bool>();
-
-        //    var content = new StringContent(usuario, Encoding.UTF8, "application/json");
-
-        //    var response = await _httpClient.PostAsync($"{_apiUrl}/Login/RegistrarUsuario", content);
-
-        //    if (response.IsSuccessStatusCode)
-        //    {
-        //        resultado = JsonConvert.DeserializeObject<Respuesta<bool>>(await response.Content.ReadAsStringAsync());
-        //        return resultado;
-        //    }
-        //    else
-        //    {
-        //        // Manejar errores de la API
-        //        return resultado;
-        //    }
-        //}
 
         [HttpGet]
-        public async Task<Respuesta<bool>> RecuperarContraseña(string datos)
+        public async Task<Respuesta<RespuestaLogin>> RecuperarContrasenia(string datos)
         {
             //Se deserializa el objeto de validacion
-            Usuario? DatosUsuario = JsonConvert.DeserializeObject<Usuario>(datos);
-
-            var resultado = new Respuesta<bool>();
+            DatosUsuario? DatosUsuario = JsonConvert.DeserializeObject<DatosUsuario>(datos);
+            Respuesta<RespuestaLogin> respuesta = new Respuesta<RespuestaLogin>();
 
             try
             {
                 if (DatosUsuario != null)
                 {
-                    resultado = await LoginModel.RecuperarContraseña(DatosUsuario);
+                    ResponseDto? resultado = await _service.RecuperarContrasenia(DatosUsuario);
 
                     //Se valida si el resultado es correcto
-                    if (resultado.Result != false)
+                    if (resultado != null && resultado.IsSuccess == true)
                     {
+                        string json = Convert.ToString(resultado.Data);
+                        respuesta = JsonConvert.DeserializeObject<Respuesta<RespuestaLogin>>(json);
                         //Se retorna el resultado
-                        return resultado;
+                        return respuesta;
                     }
                     else
                     {
-                        WriteLog.Log("RecuperarContraseña", resultado.TextError, DatosAppSettings.GetData("Url:Log"), $"Datos: {datos}");
-                        resultado.TextError = "Ocurrió un error en la recuperación de la contraseña";
-                        resultado.NumError = 1;
-                        return resultado;
+                        WriteLog.Log("RecuperarContraseña", respuesta.TextError, DatosAppSettings.GetData("Url:Log"), $"Datos: {datos}");
+                        respuesta.TextError = "Ocurrió un error en la recuperación de la contraseña";
+                        respuesta.NumError = 1;
+                        return respuesta;
                     }
                 }
                 else
                 {
-                    WriteLog.Log("RecuperarContraseña", resultado.TextError, DatosAppSettings.GetData("Url:Log"), $"Datos: {datos}");
-                    resultado.TextError = "Ocurrió un error en los datos del usuario";
-                    resultado.NumError = 3;
-                    return resultado;
+                    WriteLog.Log("RecuperarContraseña", respuesta.TextError, DatosAppSettings.GetData("Url:Log"), $"Datos: {datos}");
+                    respuesta.TextError = "Ocurrió un error en los datos del usuario";
+                    respuesta.NumError = 3;
+                    return respuesta;
                 }
             }
             catch (Exception ex)
             {
-                WriteLog.Log("RegistrarUsuario", (ex.InnerException != null ? ex.InnerException.Message : ex.Message),
+                WriteLog.Log("RecuperarContraseña", (ex.InnerException != null ? ex.InnerException.Message : ex.Message),
                     DatosAppSettings.GetData("Url:Log"), $"Datos: {datos}");
-                resultado.TextError = "Ocurrió un error al consultar la información";
-                resultado.NumError = 2;
-                resultado.Result = false;
+                respuesta.TextError = "Ocurrió un error al consultar la información";
+                respuesta.NumError = 2;
+                respuesta.Result = null;
 
-                return resultado;
+                return respuesta;
             }
         }
 

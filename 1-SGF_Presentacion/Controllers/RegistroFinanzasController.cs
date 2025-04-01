@@ -28,7 +28,7 @@ namespace _1_SGF_Presentacion.Controllers
             {
                 if (DatosUsuario != null)
                 {
-                    resultado = await MovimientoModel.InsertarMovimiento(DatosUsuario);
+                    //resultado = await MovimientoModel.InsertarMovimiento(DatosUsuario);
 
                     //Se valida si el resultado es correcto
                     if (resultado.Result != false)
