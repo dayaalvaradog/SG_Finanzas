@@ -18,11 +18,6 @@ namespace _1_SGF_Presentacion.Controllers
             _SpecialDates = options.CurrentValue;
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
-
         public static ListaCatalogos CargarCatalogos()
         {
             ListaCatalogos catalogos = new ListaCatalogos();

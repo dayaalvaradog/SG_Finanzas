@@ -104,12 +104,12 @@ namespace _3_SGF_AccesoDatos
         public bool RegistrarUsuario(DatosRegistroUsuario usuario)
         {
             bool respuesta = false;
-            var strategy = context.Database.CreateExecutionStrategy();
-            strategy.Execute(() =>
-            {
-                //Se crea el scope de la transaccion
-                using (var transaction = context.Database.BeginTransaction())
-                {
+            //var strategy = context.Database.CreateExecutionStrategy();
+            //strategy.Execute(() =>
+            //{
+            //    //Se crea el scope de la transaccion
+            //    using (var transaction = context.Database.BeginTransaction())
+            //    {
                     try
                     {
                         context.Database.ExecuteSqlRaw("EXEC dbo.usp_RegistrarUsuario   @IdUsuario, " +
@@ -122,23 +122,23 @@ namespace _3_SGF_AccesoDatos
                                                                                         "@CodUsuario",
                                         new SqlParameter("@IdUsuario", usuario.IdUsuario),
                                         new SqlParameter("@NombreCompleto", usuario.NombreCompleto),
-                                        new SqlParameter("@Contraseña", usuario.Contraseña),
+                                        new SqlParameter("@Contraseña", usuario.Contrasenia),
                                         new SqlParameter("@Correo", usuario.Correo),
                                         new SqlParameter("@Pin", usuario.Pin),
                                         new SqlParameter("@EsActivo", usuario.EsActivo),
                                         new SqlParameter("@CodTipo", usuario.TipoUsuario),
                                         new SqlParameter("@CodUsuario", usuario.CodUsuario));
                         context.SaveChanges();
-                        transaction.Commit();
-                        respuesta = true;
+                        //transaction.Commit();
+                        //respuesta = true;
                     }
                     catch (Exception)
                     {
-                        transaction.Rollback();
+                        //transaction.Rollback();
                         throw;
                     }
-                }
-            });
+            //    }
+            //});
             return respuesta;
         }
 
@@ -170,7 +170,37 @@ namespace _3_SGF_AccesoDatos
             }
         }
 
+        public bool ValidaIdUsuarioExiste(string idUsuario)
+        {
+            try
+            {
+                bool resultado = context.Database.SqlQueryRaw<bool>("SELECT dbo.udf_ValidarIdUsuarioExiste(@IdUsuario)", new SqlParameter("@IdUsuario", idUsuario))
+                .AsEnumerable()
+                .FirstOrDefault();
 
+                return resultado;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public bool ValidarCorreoExiste(string correo)
+        {
+            try
+            {
+                bool resultado = context.Database.SqlQueryRaw<bool>("SELECT dbo.udf_ValidarCorreoExiste(@Correo)", new SqlParameter("@Correo", correo))
+                .AsEnumerable()
+                .FirstOrDefault();
+
+                return resultado;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
 
     }
 

@@ -109,5 +109,41 @@ namespace _4_SGF_API.Controllers
                 return BadRequest(response);
             }
         }
+
+        [HttpGet("ValidaIdUsuarioExiste/{idUsuario}")]
+        public IActionResult ValidaIdUsuarioExiste(string idUsuario)
+        {
+            Respuesta<bool> response = new Respuesta<bool>();
+            try
+            {
+                response.Result = login.ValidaIdUsuarioExiste(idUsuario);
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                response.TextError = (ex.InnerException != null ? ex.InnerException.Message : ex.Message);
+                response.NumError = 1;
+                WriteLog.Log("Login ValidaIdUsuarioExiste", response.TextError, DatosAppSettingsApi.GetData("Url:LogApi"), "");
+                return BadRequest(response);
+            }
+        }
+
+        [HttpGet("udf_ValidarCorreoExiste/{correo}")]
+        public IActionResult ValidarCorreoExiste(string correo)
+        {
+            Respuesta<bool> response = new Respuesta<bool>();
+            try
+            {
+                response.Result = login.ValidarCorreoExiste(correo);
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                response.TextError = (ex.InnerException != null ? ex.InnerException.Message : ex.Message);
+                response.NumError = 1;
+                WriteLog.Log("Login ValidarCorreoExiste", response.TextError, DatosAppSettingsApi.GetData("Url:LogApi"), "");
+                return BadRequest(response);
+            }
+        }
     }
 }

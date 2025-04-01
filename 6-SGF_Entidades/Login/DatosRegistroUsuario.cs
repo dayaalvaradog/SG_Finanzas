@@ -11,7 +11,7 @@ namespace _6_SGF_Entidades.Login
         public string NombreCompleto { get; set; }
         public string Correo { get; set; }
         public string IdUsuario { get; set; }
-        public string Contraseña { get; set; }
+        public string Contrasenia { get; set; }
         public int Pin { get; set; }
         public int TipoUsuario { get; set; }
         public bool EsActivo { get; set; }
@@ -21,7 +21,7 @@ namespace _6_SGF_Entidades.Login
             NombreCompleto = string.Empty;
             Correo = string.Empty;
             IdUsuario = string.Empty;
-            Contraseña = string.Empty;
+            Contrasenia = string.Empty;
             Pin = 0;
             TipoUsuario = 0;
             EsActivo = false;

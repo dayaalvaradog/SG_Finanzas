@@ -7,9 +7,11 @@ using _6_SGF_Entidades.Catalogos;
 using _6_SGF_Entidades.Login;
 using _8_SGF_Log;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Text;
 
 namespace _1_SGF_Presentacion.Controllers
 {
@@ -127,7 +129,7 @@ namespace _1_SGF_Presentacion.Controllers
             var resultado = new Respuesta<List<PermisoUsuario>>();
             try
             {
-                resultado = await LoginModel.ObtenerPermisosUsuario(Usuario); // Usar await
+                resultado = await LoginModel.ObtenerPermisosUsuario(Usuario);
 
                 if (resultado.Result != null)
                 {
@@ -148,6 +150,188 @@ namespace _1_SGF_Presentacion.Controllers
                 resultado.TextError = "Ocurrió un error al consultar la información";
                 resultado.NumError = 2;
                 resultado.Result = null;
+
+                return resultado;
+            }
+        }
+
+        [HttpPost]
+        public async Task<Respuesta<bool>> RegistrarUsuario([FromBody] DatosRegistroUsuario datos)
+        {
+
+            var resultado = new Respuesta<bool>();
+
+            try
+            {
+                //Se deserializa el objeto de validacion
+                //DatosRegistroUsuario? DatosUsuario = JsonConvert.DeserializeObject<DatosRegistroUsuario>(datos);
+                if (datos != null)
+                {
+                    resultado = await LoginModel.RegistrarUsuario(datos);
+
+                    //Se valida si el resultado es correcto
+                    if (resultado.NumError == 0)
+                    {
+                        //Se retorna el resultado
+                        return resultado;
+                    }
+                    else
+                    {
+                        resultado.TextError = "Ocurrió un error en los datos del usuario";
+                        resultado.NumError = 2;
+                        resultado.Result = false;
+                        //Se retorna el resultado
+                        return resultado;
+                    }
+                }
+                else
+                {
+                    WriteLog.Log("RegistrarUsuario", resultado.TextError, DatosAppSettings.GetData("Url:Log"), $"Datos: {datos}");
+                    resultado.TextError = "Ocurrió un error en los datos del usuario";
+                    resultado.NumError = 3;
+                    resultado.Result = false;
+                    return resultado;
+                }
+            }
+            catch (Exception ex)
+            {
+                WriteLog.Log("RegistrarUsuario", (ex.InnerException != null ? ex.InnerException.Message : ex.Message),
+                    DatosAppSettings.GetData("Url:Log"), $"Datos: {datos}");
+                resultado.TextError = "Ocurrió un error al consultar la información";
+                resultado.NumError = 2;
+                resultado.Result = false;
+
+                return resultado;
+            }
+        }
+        //[HttpPost]
+        //public async Task<Respuesta<bool>> RegistrarUsuario(string usuario)
+        //{
+        //    var resultado = new Respuesta<bool>();
+
+        //    var content = new StringContent(usuario, Encoding.UTF8, "application/json");
+
+        //    var response = await _httpClient.PostAsync($"{_apiUrl}/Login/RegistrarUsuario", content);
+
+        //    if (response.IsSuccessStatusCode)
+        //    {
+        //        resultado = JsonConvert.DeserializeObject<Respuesta<bool>>(await response.Content.ReadAsStringAsync());
+        //        return resultado;
+        //    }
+        //    else
+        //    {
+        //        // Manejar errores de la API
+        //        return resultado;
+        //    }
+        //}
+
+        [HttpGet]
+        public async Task<Respuesta<bool>> RecuperarContraseña(string datos)
+        {
+            //Se deserializa el objeto de validacion
+            Usuario? DatosUsuario = JsonConvert.DeserializeObject<Usuario>(datos);
+
+            var resultado = new Respuesta<bool>();
+
+            try
+            {
+                if (DatosUsuario != null)
+                {
+                    resultado = await LoginModel.RecuperarContraseña(DatosUsuario);
+
+                    //Se valida si el resultado es correcto
+                    if (resultado.Result != false)
+                    {
+                        //Se retorna el resultado
+                        return resultado;
+                    }
+                    else
+                    {
+                        WriteLog.Log("RecuperarContraseña", resultado.TextError, DatosAppSettings.GetData("Url:Log"), $"Datos: {datos}");
+                        resultado.TextError = "Ocurrió un error en la recuperación de la contraseña";
+                        resultado.NumError = 1;
+                        return resultado;
+                    }
+                }
+                else
+                {
+                    WriteLog.Log("RecuperarContraseña", resultado.TextError, DatosAppSettings.GetData("Url:Log"), $"Datos: {datos}");
+                    resultado.TextError = "Ocurrió un error en los datos del usuario";
+                    resultado.NumError = 3;
+                    return resultado;
+                }
+            }
+            catch (Exception ex)
+            {
+                WriteLog.Log("RegistrarUsuario", (ex.InnerException != null ? ex.InnerException.Message : ex.Message),
+                    DatosAppSettings.GetData("Url:Log"), $"Datos: {datos}");
+                resultado.TextError = "Ocurrió un error al consultar la información";
+                resultado.NumError = 2;
+                resultado.Result = false;
+
+                return resultado;
+            }
+        }
+
+        [HttpGet]
+        public async Task<Respuesta<bool>> ValidaIdUsuarioExiste(string Usuario) 
+        { 
+            var resultado = new Respuesta<bool>();
+            try
+            {
+                resultado = await LoginModel.ValidaIdUsuarioExiste(Usuario);
+
+                if (resultado.Result != false)
+                {
+                    return resultado;
+                }
+                else
+                {
+                    WriteLog.Log("ValidaIdUsuarioExiste", resultado.TextError, DatosAppSettings.GetData("Url:Log"), $"Usuario: {Usuario}");
+                    resultado.TextError = "Ocurrió un error validando el usuario";
+                    resultado.NumError = 1;
+                    return resultado;
+                }
+            }
+            catch (Exception ex)
+            {
+                WriteLog.Log("ValidaIdUsuarioExiste", (ex.InnerException != null ? ex.InnerException.Message : ex.Message),
+                    DatosAppSettings.GetData("Url:Log"), $"Usuario: {Usuario}");
+                resultado.TextError = "Ocurrió un error al consultar la información";
+                resultado.NumError = 2;
+                resultado.Result = false;
+
+                return resultado;
+            }
+        }
+
+        [HttpGet]
+        public async Task<Respuesta<bool>> ValidarCorreoExiste(string correo) 
+        { 
+            var resultado = new Respuesta<bool>();
+            try
+            {
+                resultado = await LoginModel.ValidarCorreoExiste(correo);
+
+                if (resultado.Result != false)
+                {
+                    return resultado;
+                }
+                else
+                {
+                    WriteLog.Log("ValidarCorreoExiste", resultado.TextError, DatosAppSettings.GetData("Url:Log"), $"Correo: {correo}");
+                    resultado.TextError = "Ocurrió un error validando el correo";
+                    resultado.NumError = 1;
+                    return resultado;
+                }
+            }
+            catch (Exception ex)
+            {
+                WriteLog.Log("ValidarCorreoExiste", (ex.InnerException != null ? ex.InnerException.Message : ex.Message),
+                    DatosAppSettings.GetData("Url:Log"), $"Correo: {correo}");
+                resultado.TextError = "Ocurrió un error al consultar la información";
+                resultado.NumError = 2;
+                resultado.Result = false;
 
                 return resultado;
             }

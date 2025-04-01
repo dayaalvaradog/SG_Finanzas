@@ -1,4 +1,5 @@
-﻿@{
+﻿@inject IHttpContextAccessor Accessor
+@{
     <meta charset="UTF-8">
     <title></title>
     <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
@@ -7,6 +8,7 @@
     <script src="~/js/Registrarse.js" asp-append-version="true"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Login.css">
     <link rel="stylesheet" href="~/_1_SGF_Presentacion.styles.css" asp-append-version="true" />
 }
 <body>
@@ -18,40 +20,41 @@
             <div class="input-contenedor">
                 <i class="fas fa-user icon"></i>
                 <input id="nombrecompleto" type="text" placeholder="Nombre Completo">
-                <span class="obligatorio-rojo Msg_NombreCompleto"> *Por favor, rellene este campo</span>
+                <span class="obligatorio-rojo Msg_nombrecompleto"> *Por favor, rellene este campo</span>
             </div>
 
             <div class="input-contenedor">
                 <i class="fas fa-user-cog icon"></i>
                 <input id="nombreusuario" type="text" placeholder="Nombre de usuario">
-                <span class="obligatorio-rojo Msg_NombreUsuario"> *Por favor, rellene este campo</span>
+                <span class="obligatorio-rojo Msg_nombreusuario"> *Por favor, rellene este campo</span>
             </div>
 
             <div class="input-contenedor">
                 <i class="fas fa-envelope icon"></i>
                 <input id="correo" type="text" placeholder="Correo Electronico">
-                <span class="obligatorio-rojo Msg_Correo"> *Por favor, rellene este campo</span>
+                <span class="obligatorio-rojo Msg_correo"> *Por favor, digite un correo electrónico válido</span>
             </div>
 
             <div class="input-contenedor">
                 <i class="fas fa-key icon"></i>
                 <input id="nuevacontrasenia" type="password" placeholder="Contraseña">
-                <span class="obligatorio-rojo Msg_NuevaContrasenia"> *Por favor, rellene este campo</span>
+                <span class="obligatorio-rojo Msg_nuevacontrasenia"> *Por favor, rellene este campo</span>
             </div>
 
             <div class="input-contenedor">
                 <i class="fas fa-key icon"></i>
                 <input id="confirmarcontrasenia" type="password" placeholder="Confirmar Contraseña">
-                <span class="obligatorio-rojo Msg_ConfirmarContrasenia"> *Por favor, rellene este campo</span>
+                <span class="obligatorio-rojo Msg_confirmarcontrasenia"> *Por favor, rellene este campo</span>
             </div>
 
             <div class="input-contenedor">
                 <i class="far fa-question-circle icon"></i>
                 <input id="pin" type="text" placeholder="Pin de recuperacion de contraseña">
-                <span class="obligatorio-rojo Msg_Pin"> *Por favor, rellene este campo</span>
+                <span class="obligatorio-rojo Msg_pin"> *Por favor, digite un pin válido</span>
             </div>
 
-            <input type="submit" value="Registrarme" class="button">
+            <input id="btnRegistrarse" onclick="Registrarse();" value="Registrarme" class="button">
+            <div id="liveAlertPlaceholder"></div>
             <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
             <p>¿Ya tienes una cuenta?<a class="link" href="@Url.Action("Login","Login")"> Iniciar Sesion</a></p>
         </div>
@@ -61,8 +64,12 @@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/js/Registrarse.js" asp-append-version="true"></script>
 <script type="text/javascript">
     //Seccion de variables para ruta ajax
     const RutaIniciarSesion = '@Url.Action("ValidarUsuario", "Login")';
     const RutaInicio = '@Url.Action("Resumen", "Resumen")';
+    const RutaValidarCorreoExiste = '@Url.Action("ValidarCorreoExiste", "Login")';
+    const RutaValidaIdUsuarioExiste = '@Url.Action("ValidaIdUsuarioExiste", "Login")';
+    const RutaRegistrarse = '@Url.Action("RegistrarUsuario", "Login")';
 </script>

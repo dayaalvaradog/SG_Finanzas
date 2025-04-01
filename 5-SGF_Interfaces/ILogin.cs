@@ -16,5 +16,7 @@ namespace _5_SGF_Interfaces
         public List<PermisoUsuario> ObtenerPermisosUsuario(int Usuario);
         public bool RegistrarUsuario(DatosRegistroUsuario datos);
         public RespuestaLogin RecuperarContraseña(Usuario usuario);
+        public bool ValidaIdUsuarioExiste(string idUsuario);
+        public bool ValidarCorreoExiste(string correo);
     }
 }

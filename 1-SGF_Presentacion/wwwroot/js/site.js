@@ -58,3 +58,52 @@ function mostrarMensajeNotificacion(message, type) {
         bootstrap.Alert.getOrCreateInstance(wrapper).close();
     }, 5000)
 }
+
+function validarCorreo(email) {
+    var regex =
+        /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    if (!regex.test(email)) {
+        return false
+    }
+    else {
+        return true;
+    }
+}
+
+function verificarSeguridadContraseña(contraseña) {
+    // Criterios de seguridad
+    const longitudMinima = 8;
+    const tieneMayuscula = /[A-Z]/.test(contraseña);
+    const tieneMinuscula = /[a-z]/.test(contraseña);
+    const tieneNumero = /[0-9]/.test(contraseña);
+    const tieneCaracterEspecial = /[^A-Za-z0-9]/.test(contraseña);
+
+    // Verificar criterios
+    if (contraseña.length < longitudMinima) {
+        mostrarMensajeNotificacion("La contraseña debe tener al menos 8 caracteres.", 2);
+        return false;
+    }
+
+    if (!tieneMayuscula) {
+        mostrarMensajeNotificacion("La contraseña debe contener al menos una letra mayúscula.", 2);
+        return false;
+    }
+
+    if (!tieneMinuscula) {
+        mostrarMensajeNotificacion("La contraseña debe contener al menos una letra minúscula.", 2);
+        return false;
+    }
+
+    if (!tieneNumero) {
+        mostrarMensajeNotificacion("La contraseña debe contener al menos un número.", 2);
+        return false;
+    }
+
+    if (!tieneCaracterEspecial) {
+        mostrarMensajeNotificacion("La contraseña debe contener al menos un carácter especial (por ejemplo, !@#$%^&*).", 2);
+        return false;
+    }
+
+    // Si todos los criterios se cumplen, la contraseña es segura
+    return true;
+}
