@@ -75,7 +75,9 @@ namespace _1_SGF_Presentacion.Controllers
                     //se carga la lista de catálogos
                     ListaCatalogos catalogos = CatalogoController.CargarCatalogos();
                     ViewBag.Catalogos = catalogos;
+                    ViewBag.TiposMenu = catalogos.TiposMenu;
                     HttpContext.Session.SetString("Catalogos", JsonConvert.SerializeObject(catalogos));
+                    HttpContext.Session.SetString("TiposMenu", JsonConvert.SerializeObject(catalogos.TiposMenu));
 
                     return resultado;
                 }

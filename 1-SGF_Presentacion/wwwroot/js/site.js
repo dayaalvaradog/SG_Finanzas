@@ -107,3 +107,81 @@ function verificarSeguridadContraseña(contraseña) {
     // Si todos los criterios se cumplen, la contraseña es segura
     return true;
 }
+
+function ObtenerRuta(codTipo, codMenu) {
+    //Aquí se agrega las rutas de las vistas que se van a utilizar
+    var ruta;
+    switch (codTipo) {
+        case 1:
+            switch (codMenu) {
+                //Registro de Movimientos
+                case 1:
+                    ruta = RutaRegistrarMovimiento;
+                    break;
+                //Registro de Presupuesto
+                case 2:
+                    ruta = RutaRegistrarPresupuesto;
+                    break;
+                //Registro de Metas Presupuestarias
+                case 3:
+                    ruta = RegistroMetasPresupuesto;
+                    break;
+                default:
+                    ruta = RutaLogin;
+                    break;
+            }
+            break;
+        case 2:
+            switch (codMenu) {
+                //Consulta de Estado de Cuentas
+                case 4:
+                    ruta = RutaConsultaEstadoCuentas;
+                    break;
+                //Consulta de Movimientos
+                case 5:
+                    ruta = RutaConsultaMovimientos;
+                    break;
+                default:
+                    ruta = RutaLogin;
+                    break;
+            }
+            break;
+        case 3:
+            switch (codMenu) {
+                default:
+                    ruta = RutaLogin;
+                    break;
+            }
+            break;
+        case 4:
+            switch (codMenu) {
+                //Resumen Estadísticas
+                case 6:
+                    ruta = RutaInicio;
+                    break;
+                default:
+                    ruta = RutaLogin;
+                    break;
+            }
+            break;
+        case 5:
+            switch (codMenu) {
+                //Registro de Cuentas Bancarias
+                case 8:
+                    ruta = RutaRegistroCuentas;
+                    break;
+                default:
+                    ruta = RutaLogin;
+                    break;
+            }
+        default:
+            ruta = RutaLogin;
+            break;
+    }
+    return ruta;
+}
+
+function RedireccionarRuta(codTipo, codMenu) {
+    var ruta = ObtenerRuta(codTipo, codMenu);
+    window.location.href = ruta;
+}

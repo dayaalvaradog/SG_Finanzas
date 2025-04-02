@@ -15,6 +15,11 @@ namespace _1_SGF_Presentacion.Controllers
             return View();
         }
 
+        public IActionResult ConsultaEstadoCuentas()
+        {
+            return View();
+        }
+
         [HttpGet]
         public async Task<Respuesta<List<Movimiento>>> ObtenerMovimientos(int Usuario)
         {

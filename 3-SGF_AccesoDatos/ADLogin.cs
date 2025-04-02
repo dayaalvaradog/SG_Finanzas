@@ -134,7 +134,7 @@ namespace _3_SGF_AccesoDatos
                     }
                     catch (Exception)
                     {
-                        //transaction.Rollback();
+                        transaction.Rollback();
                         throw;
                     }
                 }

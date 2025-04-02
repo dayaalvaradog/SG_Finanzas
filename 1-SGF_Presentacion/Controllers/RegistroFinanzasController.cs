@@ -16,6 +16,16 @@ namespace _1_SGF_Presentacion.Controllers
             return View();
         }
 
+        public IActionResult RegistrarPresupuesto()
+        {
+            return View();
+        }
+
+        public IActionResult RegistroMetasPresupuesto()
+        {
+            return View();
+        }
+
         [HttpPost]
         public async Task<Respuesta<bool>> InsertarMovimiento(string datos)
         {

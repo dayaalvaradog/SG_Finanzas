@@ -109,6 +109,28 @@ namespace _3_SGF_AccesoDatos
             }
         }
 
+        public List<TipoMenu> ObtenerTiposMenu()
+        {
+            try
+            {
+                return context.usp_ObtenerTiposMenu
+                       .FromSqlRaw("EXECUTE dbo.usp_ObtenerTiposMenu")
+                       .AsNoTracking()
+                       .AsEnumerable()
+                       .Select(x => new TipoMenu
+                       {
+                           CodMenu = x.CodMenu,
+                           Descripcion = x.Descripcion,
+                           Activo = x.Activo
+                       })
+                       .ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
 
     }
 

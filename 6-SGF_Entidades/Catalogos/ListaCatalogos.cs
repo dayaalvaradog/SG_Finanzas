@@ -15,6 +15,7 @@ namespace _6_SGF_Entidades.Catalogos
         #region Administracion
         public List<PermisoUsuario> PermisoUsuario { get; set; }
         public List<TiposUsuario> TiposUsuario { get; set; } 
+        public List<TipoMenu> TiposMenu { get; set; } 
         #endregion 
     }
 }

@@ -11,6 +11,11 @@ namespace _1_SGF_Presentacion.Controllers
 {
     public class MantenimientoController : Controller
     {
+        public IActionResult RegistroCuentas()
+        {
+            return View();
+        }
+
         [HttpPost]
         public async Task<Respuesta<bool>> InsertarCuenta(string datos)
         {

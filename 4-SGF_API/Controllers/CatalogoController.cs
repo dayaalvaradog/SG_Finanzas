@@ -88,5 +88,23 @@ namespace _4_SGF_API.Controllers
                 return BadRequest(response);
             }
         }
+
+        [HttpGet("ObtenerTiposMenu")]
+        public IActionResult ObtenerTiposMenu()
+        {
+            Respuesta<List<TipoMenu>> response = new Respuesta<List<TipoMenu>>();
+            try
+            {
+                response.Result = catalogo.ObtenerTiposMenu();
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                response.TextError = (ex.InnerException != null ? ex.InnerException.Message : ex.Message);
+                response.NumError = 1;
+                WriteLog.Log("Catalogos ObtenerTiposMenu", response.TextError, DatosAppSettingsApi.GetData("Url:LogApi"), "");
+                return BadRequest(response);
+            }
+        }
     }
 }

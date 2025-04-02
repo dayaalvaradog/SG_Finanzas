@@ -92,5 +92,26 @@ namespace _1_SGF_Presentacion.Models
             return result;
         }
 
+        public static async Task<Respuesta<List<TipoMenu>>> ObtenerTiposMenu()
+        {
+            // Se crea el objeto que se va a devolver
+            Respuesta<List<TipoMenu>> result = new Respuesta<List<TipoMenu>>();
+
+            try
+            {
+                // Se crea el objeto API para consumir el servicio
+                API<Respuesta<List<TipoMenu>>> servicio = new API<Respuesta<List<TipoMenu>>>(new Uri($"{DatosAppSettings.GetUrlAPI()}/Catalogo/ObtenerTiposMenu/"));
+
+                result = await servicio.ObtenerResultadoAsync("GET");
+            }
+            catch (Exception)
+            {
+                throw; // Re-lanza la excepción para que el llamador la maneje
+            }
+
+            // Se retorna el resultado
+            return result;
+        }
+
     }
 }

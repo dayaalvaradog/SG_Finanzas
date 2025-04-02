@@ -26,6 +26,7 @@ namespace _1_SGF_Presentacion.Controllers
             catalogos.Clasificaciones = CatalogoModel.ObtenerClasificaciones().Result.Result;
             catalogos.PermisoUsuario = CatalogoModel.ObtenerTiposPermiso().Result.Result;
             catalogos.TiposUsuario = CatalogoModel.ObtenerTiposUsuario().Result.Result;
+            catalogos.TiposMenu = CatalogoModel.ObtenerTiposMenu().Result.Result;
 
             return catalogos;
         }
@@ -151,6 +152,39 @@ namespace _1_SGF_Presentacion.Controllers
             catch (Exception ex)
             {
                 WriteLog.Log("ObtenerTiposPermiso", (ex.InnerException != null ? ex.InnerException.Message : ex.Message),
+                    DatosAppSettings.GetData("Url:Log"), "");
+                resultado.TextError = "Ocurrió un error al consultar la información";
+                resultado.NumError = 2;
+                resultado.Result = null;
+
+                return resultado;
+            }
+
+        }
+
+        [HttpGet]
+        public async Task<Respuesta<List<TipoMenu>>> ObtenerTiposMenu()
+        {
+            Respuesta<List<TipoMenu>> resultado = new Respuesta<List<TipoMenu>>();
+            try
+            {
+                resultado = await CatalogoModel.ObtenerTiposMenu();
+
+                if (resultado.Result != null)
+                {
+                    return resultado;
+                }
+                else
+                {
+                    WriteLog.Log("ObtenerTiposMenu", resultado.TextError, DatosAppSettings.GetData("Url:Log"), "");
+                    resultado.TextError = "Ocurrió un error obteniendo los datos del usuario";
+                    resultado.NumError = 1;
+                    return resultado;
+                }
+            }
+            catch (Exception ex)
+            {
+                WriteLog.Log("ObtenerTiposMenu", (ex.InnerException != null ? ex.InnerException.Message : ex.Message),
                     DatosAppSettings.GetData("Url:Log"), "");
                 resultado.TextError = "Ocurrió un error al consultar la información";
                 resultado.NumError = 2;

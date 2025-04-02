@@ -38,7 +38,7 @@ function IniciarSesion() {
 
         $.ajax({
             type: "GET",
-            url: RutaIniciarSesion,
+            url: RutaValidarLogin,
             data: { usuario : us, contraseña : pass },
             dataType: "json",
             async: false,
