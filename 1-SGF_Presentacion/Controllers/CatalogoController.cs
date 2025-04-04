@@ -27,6 +27,7 @@ namespace _1_SGF_Presentacion.Controllers
             catalogos.PermisoUsuario = CatalogoModel.ObtenerTiposPermiso().Result.Result;
             catalogos.TiposUsuario = CatalogoModel.ObtenerTiposUsuario().Result.Result;
             catalogos.TiposMenu = CatalogoModel.ObtenerTiposMenu().Result.Result;
+            catalogos.TiposMoneda = CatalogoModel.ObtenerTiposMoneda().Result.Result;
 
             return catalogos;
         }
@@ -185,6 +186,39 @@ namespace _1_SGF_Presentacion.Controllers
             catch (Exception ex)
             {
                 WriteLog.Log("ObtenerTiposMenu", (ex.InnerException != null ? ex.InnerException.Message : ex.Message),
+                    DatosAppSettings.GetData("Url:Log"), "");
+                resultado.TextError = "Ocurrió un error al consultar la información";
+                resultado.NumError = 2;
+                resultado.Result = null;
+
+                return resultado;
+            }
+
+        }
+
+        [HttpGet]
+        public async Task<Respuesta<List<Moneda>>> ObtenerTiposMoneda()
+        {
+            Respuesta<List<Moneda>> resultado = new Respuesta<List<Moneda>>();
+            try
+            {
+                resultado = await CatalogoModel.ObtenerTiposMoneda();
+
+                if (resultado.Result != null)
+                {
+                    return resultado;
+                }
+                else
+                {
+                    WriteLog.Log("ObtenerTiposMoneda", resultado.TextError, DatosAppSettings.GetData("Url:Log"), "");
+                    resultado.TextError = "Ocurrió un error obteniendo los datos de moneda";
+                    resultado.NumError = 1;
+                    return resultado;
+                }
+            }
+            catch (Exception ex)
+            {
+                WriteLog.Log("ObtenerTiposMoneda", (ex.InnerException != null ? ex.InnerException.Message : ex.Message),
                     DatosAppSettings.GetData("Url:Log"), "");
                 resultado.TextError = "Ocurrió un error al consultar la información";
                 resultado.NumError = 2;

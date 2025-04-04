@@ -1,9 +1,17 @@
 ﻿@using _6_SGF_Entidades.Catalogos;
+@using _6_SGF_Entidades.Login;
+@using Newtonsoft.Json
+@inject IHttpContextAccessor Accessor
 @{
     ViewBag.Title = "Movimientos";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
-    ListaCatalogos listaCatalogos = ViewBag.Catalogos != null ? ViewBag.Catalogos : new ListaCatalogos();
+    <meta charset="UTF-8">
+    ViewBag.Title = "Registrarse";
+
+    Usuario usuario = Accessor.HttpContext.Session.GetString("Usuario") != null ? JsonConvert.DeserializeObject<Usuario>(Accessor.HttpContext.Session.GetString("Usuario")) : new Usuario();
+    ListaCatalogos listaCatalogos = Accessor.HttpContext.Session.GetString("Catalogos") != null ? JsonConvert.DeserializeObject<ListaCatalogos>(Accessor.HttpContext.Session.GetString("Catalogos")) : new ListaCatalogos();
+    string claseactive = "";
 }
 <div class="box box-primary">
     <div class="box-header">
@@ -11,11 +19,132 @@
     </div>
     <form role="form">
         <div class="box-body">
-            
+            <form class="formulario">
+
+                <h1>Registrar Movimiento</h1>
+                <div class="contenedor">
+
+                    <div class="row">
+                        <div id="DivddlCategoria" class="col-md-10 col-lg-10 col-xl-10 col-xxl-10">
+                            <div class="input-group-prepend">
+                                <select id="ddlCategoria" class="form-control">
+                                    <option value="">Seleccione una categoría</option>
+                                    @foreach (var categoria in listaCatalogos.Categorias)
+                                    {
+                                        <option value="@categoria.CodCategoria">@categoria.Descripcion</option>
+                                    }
+                                </select>
+                            </div>
+                            <span class="obligatorio-rojo Msg_ddlCategoria"> *Por favor, elija una opción</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div id="DivddlClasificaciones" class="col-md-10 col-lg-10 col-xl-10 col-xxl-10">
+                            <div class="input-group-prepend">
+                                <select id="ddlClasificaciones" class="form-control">
+                                    <option value="">Seleccione una clasificación</option>
+                                    @foreach (var clasificacion in listaCatalogos.Clasificaciones)
+                                    {
+                                        <option value="@clasificacion.CodClasificacion">@clasificacion.Descripcion</option>
+                                    }
+                                </select>
+                            </div>
+                            <span class="obligatorio-rojo Msg_ddlClasificaciones"> *Por favor, elija una opción</span>
+                        </div>
+                    </div>
+
+                    @if (usuario.datosUsuario.CodTipo == 1)
+                    {
+                        <div class="input-group-prepend" style="display:none;">
+                            <div id="DivUsuario" class="input-group-prepend">
+                                <div class="form-control">
+                                    @{
+                                        if (usuario.datosUsuario.CodUsuario > 0)
+                                        {
+                                            claseactive = " active";
+                                        }
+                                    }
+                                    <input type="search" value="@usuario.datosUsuario.IdUsuario.ToString()" id="idUsuario" class="form-control filtrar input-especiales" + claseactive" maxlength="10" />
+                                    <label class="form-label" for="idUsuario">Nombre de usuario</label>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div id="DivIdUsuario" class="input-group-prepend">
+                            <div class="input-group-prepend">
+                                <div class="form-control">
+                                    @{
+                                        claseactive = @usuario.datosUsuario.CodUsuario > 0 ? " active" : string.Empty;
+                                    }
+                                    <input type="search" value="@usuario.datosUsuario.IdUsuario.ToString()" id="idUsuario" class="form-control filtrar input-especiales" + claseactive" maxlength="10" />
+                                    <label class="form-label" for="idUsuario">Nombre de usuario</label>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    <div class="row">
+                        <div id="DivddlCuenta" class="col-md-10 col-lg-10 col-xl-10 col-xxl-10">
+                            <div class="input-group-prepend">
+                                <select id="ddlCuenta" class="form-control">
+                                    <option value="">Seleccione una cuenta bancaria</option>
+                                    @foreach (var cuenta in usuario.cuentasBancarias)
+                                    {
+                                        <option value="@cuenta.CodCuenta">@cuenta.AliasCuenta</option>
+                                    }
+                                </select>
+                            </div>
+                            <span class="obligatorio-rojo Msg_ddlCuenta"> *Por favor, elija una opción</span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div id="DivddlMoneda" class="col-md-10 col-lg-10 col-xl-10 col-xxl-10">
+                            <div class="input-group-prepend">
+                                <select id="ddlMoneda" class="form-control">
+                                    <option value="0">Seleccione una moneda</option>
+                                    @foreach (var moneda in listaCatalogos.TiposMoneda)
+                                    {
+                                        <option value="@moneda.CodMoneda">@moneda.Descripcion</option>
+                                    }
+                                </select>
+                            </div>
+                            <span class="obligatorio-rojo Msg_ddlMoneda"> *Por favor, elija una opción</span>
+                        </div>
+                    </div>
+
+                    <div id="DivddlMonto" class="input-group-prepend">
+                        <div class="input-group-prepend">
+                            <div class="form-control">
+                                <input type="search" value="0.00" id="Monto" class="form-control filtrar input-especiales" data-inputmask="'alias': 'currency1'" />
+                                <label class="form-label" for="Monto">Monto</label>
+                            </div>
+                            <span class="obligatorio-rojo Msg_Monto"> *Por favor, rellene este campo</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group-prepend">
+                        <div class="input-group-prepend">
+                            <div class="form-outline libre">
+                                @{
+                                    string fechaminima = DateTime.MinValue.ToString("yyyy-MM-dd");
+                                    string fechamaxima = DateTime.Now.ToString("yyyy-MM-dd");
+                                }
+                                <input type="date" value="@DateTime.Now" id="Fecha" class="form-control filtrar input-especiales" min="@fechaminima" max="@fechamaxima" />
+                                <label class="form-label" for="Fecha">Fecha</label>
+                            </div>
+                            <span class="obligatorio-rojo Msg_Fecha"> *Por favor, indique una fecha válida</span>
+                        </div>
+                    </div>
+                    
+                </div>
+            </form>
+
         </div><!-- /.box-body -->
 
         <div class="box-footer">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button class="btn btn-primary">Registrar Movimiento</button>
         </div>
     </form>
 </div>

@@ -131,6 +131,28 @@ namespace _3_SGF_AccesoDatos
             }
         }
 
+        public List<Moneda> ObtenerTiposMoneda()
+        {
+            try
+            {
+                return context.usp_ObtenerTiposMoneda
+                       .FromSqlRaw("EXECUTE dbo.usp_ObtenerTiposMoneda")
+                       .AsNoTracking()
+                       .AsEnumerable()
+                       .Select(x => new Moneda
+                       {
+                           CodMoneda = x.CodMoneda,
+                           Descripcion = x.Descripcion,
+                           Activo = x.Activo
+                       })
+                       .ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
 
     }
 

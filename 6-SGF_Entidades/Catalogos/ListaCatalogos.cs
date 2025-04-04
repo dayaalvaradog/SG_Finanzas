@@ -11,6 +11,7 @@ namespace _6_SGF_Entidades.Catalogos
         #region Movimientos
         public List<Categoria> Categorias { get; set; }
         public List<Clasificacion> Clasificaciones { get; set; }
+        public List<Moneda> TiposMoneda { get; set; } 
         #endregion
         #region Administracion
         public List<PermisoUsuario> PermisoUsuario { get; set; }

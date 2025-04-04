@@ -106,5 +106,23 @@ namespace _4_SGF_API.Controllers
                 return BadRequest(response);
             }
         }
+
+        [HttpGet("ObtenerTiposMoneda")]
+        public IActionResult ObtenerTiposMoneda()
+        {
+            Respuesta<List<Moneda>> response = new Respuesta<List<Moneda>>();
+            try
+            {
+                response.Result = catalogo.ObtenerTiposMoneda();
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                response.TextError = (ex.InnerException != null ? ex.InnerException.Message : ex.Message);
+                response.NumError = 1;
+                WriteLog.Log("Catalogos ObtenerTiposMoneda", response.TextError, DatosAppSettingsApi.GetData("Url:LogApi"), "");
+                return BadRequest(response);
+            }
+        }
     }
 }

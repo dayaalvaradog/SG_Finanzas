@@ -19,38 +19,35 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                            <div class="input-group-prepend">
-                                <div class="input-group-prepend">
-                                    <div class="form-control">
-                                        <i class="fas fa-envelope icon"></i>
-                                        <input id="Usuario" type="text" placeholder="Usuario">
-                                    </div>
-                                    <span class="obligatorio-rojo Msg_Usuario"> *Por favor, rellene este campo</span>
+                            <div class="input-group">
+                                <div class="form-outline libre">
+                                    <input id="Usuario" type="search" class="form-control filtrar input-especiales">
+                                    <label class="form-label" for="form1"><i class="fas fa-envelope icon"></i> Nombre de usuario</label>
                                 </div>
+                                <span class="obligatorio-rojo Msg_Usuario"> *Por favor, rellene este campo</span>
                             </div>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                            <div class="input-group-prepend">
-                                <div class="input-group-prepend">
-                                    <div class="form-control">
-                                        <i class="fas fa-key icon"></i>
-                                        <input id="Contrasenia" type="password" placeholder="Contraseña">
-                                    </div>
-                                    <span class="obligatorio-rojo Msg_Contrasenia"> *Por favor, rellene este campo</span>
+                            <div class="input-group">
+                                <div class="form-outline libre">
+                                    <input id="Contrasenia" type="password" placeholder="Contraseña" class="form-control filtrar input-especiales">
+                                    <label class="form-label" for="form1"><i class="fas fa-key icon"></i> Contraseña</label>
                                 </div>
+                                <span class="obligatorio-rojo Msg_Contrasenia"> *Por favor, rellene este campo</span>
                             </div>
                         </div>
                     </div>
-
-                    <div class="input-group-prepend">
-                        <input id="btnLogin" onclick="IniciarSesion();" value="Login" class="button">
-                        <div id="liveAlertPlaceholder"></div>
-                        <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
-                        <p>¿No tienes una cuenta? <a class="link" href="@Url.Action("Registrarse","Login")"> Registrarse </a><br/></p>
-                        <p><a class="link" href="@Url.Action("CambiarContraseña","Login")"> Recuperar contraseña </a></p>
+                    <div class="row">
+                        <div class="input-group-prepend">
+                            <input id="btnLogin" onclick="IniciarSesion();" value="Login" class="button">
+                            <div id="liveAlertPlaceholder"></div>
+                            <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
+                            <p>¿No tienes una cuenta? <a class="link" href="@Url.Action("Registrarse","Login")"> Registrarse </a><br /></p>
+                            <p><a class="link" href="@Url.Action("CambiarContraseña","Login")"> Recuperar contraseña </a></p>
+                        </div>
                     </div>
                 </div>
             </div>

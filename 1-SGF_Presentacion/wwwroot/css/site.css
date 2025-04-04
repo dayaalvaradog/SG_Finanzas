@@ -1,9 +1,15 @@
 :root {
-    --grisoscuro: #424141;
+    --azuloscuro: #446389;
     --azulclaro: #3D77B0;
-    --rojo2: #E94650;
+    --grisoscuro: #424141;
+    --grismedio: #9e9e9e;
+    --grisclaro: #e0e0e0;
     --rojo: #C63B3B;
     --blanco: #fff;
+    --negro: #000;
+    --verde: #2DBC9A;
+    --rosado: #344544;
+    --celeste: #ECF1F7;
 }
 
 html {
@@ -120,4 +126,129 @@ span.obligatorio, span.obligatorio-rojo {
 .contenido2 {
     padding: 0 50px;
     margin-bottom: 40px;
+}
+
+.row {
+    padding-top: 10px;
+}
+
+.form-outline .label-enfocado:focus {
+    box-shadow: 1px solid var(--azulclaro) !important;
+    background-color: var(--negro);
+}
+
+.form-outline {
+    border: 1px solid var(--grisclaro);
+    border-radius: 2px;
+}
+
+.form-label {
+    background-color: var(--blanco);
+}
+
+.form-outline .form-helper {
+    width: 100%;
+    position: absolute;
+    font-size: .875em;
+    color: #757575
+}
+
+    .form-outline .form-helper .form-counter {
+        text-align: right
+    }
+
+.form-outline .trailing {
+    position: absolute;
+    right: 10px;
+    left: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none
+}
+
+.form-outline .form-icon-trailing {
+    padding-right: 2rem !important
+}
+
+.form-outline .form-control {
+    min-height: auto;
+    padding: .47em .75em;
+    border: 0;
+    background: transparent;
+    transition: all .2s linear
+}
+
+    .form-outline .form-control ~ .form-label {
+        position: absolute;
+        top: 9px;
+        max-width: 90%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        left: .75rem;
+        padding-top: .37rem;
+        pointer-events: none;
+        transform-origin: 0 0;
+        transition: all .2s ease-out;
+        color: rgba(0,0,0,.6);
+        margin-bottom: 0
+    }
+
+.form-notch-trailing {
+    width: 1px;
+}
+
+.form-outline .form-control:not(.placeholder-active)::-moz-placeholder {
+    opacity: 0
+}
+
+.form-outline .form-control:not(.placeholder-active)::placeholder {
+    opacity: 0
+}
+
+.form-outline .form-control.active::-moz-placeholder, .form-outline .form-control:focus::-moz-placeholder {
+    opacity: 1
+}
+
+.form-outline .form-control.active::placeholder, .form-outline .form-control:focus::placeholder {
+    opacity: 1
+}
+
+.form-outline .form-control.active ~ .form-label, .form-outline .form-control:focus ~ .form-label {
+    transform: translateY(-1.5rem) translateY(.1rem) scale(.8)
+}
+
+.form-outline .form-control:focus ~ .form-label {
+    color: #1266f1
+}
+
+.form-outline .label-enfocado:focus {
+    box-shadow: 1px solid var(--azulclaro) !important;
+    background-color: var(--negro);
+}
+
+.form-outline {
+    border: 1px solid var(--grisclaro);
+    border-radius: 2px;
+}
+
+.form-control:disabled {
+    color: var(--grismedio) !important;
+}
+
+input .form-control:focus {
+    border: 1px solid green;
+    box-shadow: 0 0 0 0.25rem rgba(13,110,253,.25) !important;
+}
+
+.filtrar {
+    padding: 8px;
+}
+
+input.input-especiales {
+    padding: 15px !important;
+    font-family: 'Encode Sans Semi Condensed', sans-serif !important;
+}
+.button {
+    text-align: center;
 }

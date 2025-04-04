@@ -113,5 +113,26 @@ namespace _1_SGF_Presentacion.Models
             return result;
         }
 
+        public static async Task<Respuesta<List<Moneda>>> ObtenerTiposMoneda()
+        {
+            // Se crea el objeto que se va a devolver
+            Respuesta<List<Moneda>> result = new Respuesta<List<Moneda>>();
+
+            try
+            {
+                // Se crea el objeto API para consumir el servicio
+                API<Respuesta<List<Moneda>>> servicio = new API<Respuesta<List<Moneda>>>(new Uri($"{DatosAppSettings.GetUrlAPI()}/Catalogo/ObtenerTiposMoneda/"));
+
+                result = await servicio.ObtenerResultadoAsync("GET");
+            }
+            catch (Exception)
+            {
+                throw; // Re-lanza la excepción para que el llamador la maneje
+            }
+
+            // Se retorna el resultado
+            return result;
+        }
+
     }
 }

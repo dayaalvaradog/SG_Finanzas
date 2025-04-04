@@ -1,4 +1,5 @@
 ﻿using _6_SGF_Entidades.Catalogos;
+using _6_SGF_Entidades.Cuenta;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,13 @@ namespace _6_SGF_Entidades.Login
     { 
         public DatosUsuario datosUsuario { get; set; }
         public List<PermisoUsuario>? permisosUsuario { get; set; }
+        public List<CuentaBancaria>? cuentasBancarias { get; set; }
+
+        public Usuario() {
+            datosUsuario = new DatosUsuario();
+            permisosUsuario = new List<PermisoUsuario>();
+            cuentasBancarias = new List<CuentaBancaria>();
+        }
 
     }
 }

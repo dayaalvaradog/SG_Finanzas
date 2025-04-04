@@ -7,14 +7,14 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <title>@ViewData["Title"] - Sistema de Gestion de Finanzas</title>
     @* <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" /> *@
-    <link rel="stylesheet" href="~/_1_SGF_Presentacion.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/main.min.css" rel="stylesheet" type="text/css">
     <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="~/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css">
 
-    Usuario usuario = ViewBag.Usuario != null ? JsonConvert.DeserializeObject<Usuario>(ViewBag.Usuario) : new Usuario();
+    Usuario usuario = Accessor.HttpContext.Session.GetString("Usuario") != null ? JsonConvert.DeserializeObject<Usuario>(Accessor.HttpContext.Session.GetString("Usuario")) : new Usuario();
     List<TipoMenu> tiposmenu = Accessor.HttpContext.Session.GetString("TiposMenu") == null ? null : JsonConvert.DeserializeObject<List<TipoMenu>>(Accessor.HttpContext.Session.GetString("TiposMenu"));
 }
 <body class="skin-yellow">

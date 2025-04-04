@@ -4,6 +4,7 @@ using _2_SGF_Modelo.Entidades;
 using _2_SGF_Modelo.Entidades.Login;
 using _4_SGF_API.Controllers;
 using _6_SGF_Entidades.Catalogos;
+using _6_SGF_Entidades.Cuenta;
 using _6_SGF_Entidades.Login;
 using _7_SGF_Comun.API;
 using _8_SGF_Log;
@@ -62,6 +63,9 @@ namespace _1_SGF_Presentacion.Controllers
                         if (datosUsuario.Result != null)
                         {
                             UsuarioAutenticado.datosUsuario = datosUsuario.Result;
+                            //Se obtiene la lista de cuentas bancarias del usuario
+                            UsuarioAutenticado.cuentasBancarias = CuentaModel.ObtenerCuentasUsuario(resultado.Result.CodUsuario.Value).Result.Result;
+                            
                         }
                         var permisosUsuario = ObtenerPermisosUsuario(resultado.Result.CodUsuario.Value).Result; 
                         if (permisosUsuario.Result != null)

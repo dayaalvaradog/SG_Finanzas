@@ -14,6 +14,7 @@ namespace _5_SGF_Interfaces
         public List<TiposUsuario> ObtenerTiposUsuario();
         public List<PermisoUsuario> ObtenerTiposPermiso();
         public List<TipoMenu> ObtenerTiposMenu();
+        public List<Moneda> ObtenerTiposMoneda();
 
     }
 }
