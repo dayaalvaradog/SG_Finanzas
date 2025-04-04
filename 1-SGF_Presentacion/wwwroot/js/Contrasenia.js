@@ -1,11 +1,11 @@
 ﻿function ValidarCambiarContrasenia() {
     //Se inicializa el arreglo de errores
     var eserror = false;
-
-    const tieneNumeros = /[0-9]/.test($("#pin").val());
+    var user = $("#idusuario").val();
+    var cont = $("#correoelect").val();
 
     //Se valida si el usuario esta vacio
-    if (($("#idusuario").val() == "") && $("#idusuario").is(":checked")) {
+    if (($("#idusuario").val() == "") && $("#Radio_idusuario").is(":checked")) {
         AplicarEstiloValidacion("idusuario", true, true);
         eserror = true;
     }
@@ -61,7 +61,7 @@
     }
 
     //Se valida que el correo no esté incorrecto o vacío
-    if ((($("#correoelect").val() == "" || (validarCorreo($("#correoelect").val())) == false)) && ($("#correoelect").is(":checked"))) {
+    if ((($("#correoelect").val() == "" || (validarCorreo($("#correoelect").val())) == false)) && ($("#Radio_correo").is(":checked"))) {
         AplicarEstiloValidacion("correoelect", true, true);
         mostrarMensajeNotificacion("Digite un correo electrónico válido", 2);
         eserror = true;

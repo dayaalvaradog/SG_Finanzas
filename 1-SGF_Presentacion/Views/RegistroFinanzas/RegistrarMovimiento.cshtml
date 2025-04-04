@@ -25,9 +25,9 @@
                 <div class="contenedor">
 
                     <div class="row">
-                        <div id="DivddlCategoria" class="col-md-10 col-lg-10 col-xl-10 col-xxl-10">
+                        <div class="col-lg-8 col-xl-8 col-xxl-8 col-md-8">
                             <div class="input-group-prepend">
-                                <select id="ddlCategoria" class="form-control">
+                                <select id="ddlCategoria" class="form-control selectpicker">
                                     <option value="">Seleccione una categoría</option>
                                     @foreach (var categoria in listaCatalogos.Categorias)
                                     {
@@ -39,9 +39,9 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div id="DivddlClasificaciones" class="col-md-10 col-lg-10 col-xl-10 col-xxl-10">
+                        <div class="col-lg-8 col-xl-8 col-xxl-8 col-md-8">
                             <div class="input-group-prepend">
-                                <select id="ddlClasificaciones" class="form-control">
+                                <select id="ddlClasificaciones" class="form-control selectpicker">
                                     <option value="">Seleccione una clasificación</option>
                                     @foreach (var clasificacion in listaCatalogos.Clasificaciones)
                                     {
@@ -55,39 +55,43 @@
 
                     @if (usuario.datosUsuario.CodTipo == 1)
                     {
-                        <div class="input-group-prepend" style="display:none;">
-                            <div id="DivUsuario" class="input-group-prepend">
-                                <div class="form-control">
-                                    @{
-                                        if (usuario.datosUsuario.CodUsuario > 0)
-                                        {
-                                            claseactive = " active";
+                        <div class="row" style="display:none;">
+                            <div class="col-md-8 col-lg-8 col-xl-8 col-xxl-8">
+                                <div class="input-group">
+                                    <div class="form-outline libre">
+                                        @{
+                                            if (usuario.datosUsuario.CodUsuario > 0)
+                                            {
+                                                claseactive = " active";
+                                            }
                                         }
-                                    }
-                                    <input type="search" value="@usuario.datosUsuario.IdUsuario.ToString()" id="idUsuario" class="form-control filtrar input-especiales" + claseactive" maxlength="10" />
-                                    <label class="form-label" for="idUsuario">Nombre de usuario</label>
+                                        <input type="search" value="@usuario.datosUsuario.IdUsuario.ToString()" id="idUsuario" class="form-control filtrar input-especiales" + claseactive" maxlength="10" />
+                                        <label class="form-label" for="idUsuario">Nombre de usuario</label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     }
                     else
                     {
-                        <div id="DivIdUsuario" class="input-group-prepend">
-                            <div class="input-group-prepend">
-                                <div class="form-control">
-                                    @{
-                                        claseactive = @usuario.datosUsuario.CodUsuario > 0 ? " active" : string.Empty;
-                                    }
-                                    <input type="search" value="@usuario.datosUsuario.IdUsuario.ToString()" id="idUsuario" class="form-control filtrar input-especiales" + claseactive" maxlength="10" />
-                                    <label class="form-label" for="idUsuario">Nombre de usuario</label>
+                        <div class="row">
+                            <div class="col-md-8 col-lg-8 col-xl-8 col-xxl-8">
+                                <div class="input-group">
+                                    <div class="form-outline libre">
+                                        @{
+                                            claseactive = @usuario.datosUsuario.CodUsuario > 0 ? " active" : string.Empty;
+                                        }
+                                        <input type="search" value="@usuario.datosUsuario.IdUsuario.ToString()" id="idUsuario" class="form-control filtrar input-especiales" + claseactive" maxlength="10" />
+                                        <label class="form-label" for="idUsuario">Nombre de usuario</label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     }
                     <div class="row">
-                        <div id="DivddlCuenta" class="col-md-10 col-lg-10 col-xl-10 col-xxl-10">
+                        <div class="col-lg-8 col-xl-8 col-xxl-8 col-md-8">
                             <div class="input-group-prepend">
-                                <select id="ddlCuenta" class="form-control">
+                                <select id="ddlCuenta" class=" form-control selectpicker">
                                     <option value="">Seleccione una cuenta bancaria</option>
                                     @foreach (var cuenta in usuario.cuentasBancarias)
                                     {
@@ -100,9 +104,9 @@
                     </div>
 
                     <div class="row">
-                        <div id="DivddlMoneda" class="col-md-10 col-lg-10 col-xl-10 col-xxl-10">
+                        <div class="col-lg-8 col-xl-8 col-xxl-8 col-md-8">
                             <div class="input-group-prepend">
-                                <select id="ddlMoneda" class="form-control">
+                                <select id="ddlMoneda" class="form-control selectpicker">
                                     <option value="0">Seleccione una moneda</option>
                                     @foreach (var moneda in listaCatalogos.TiposMoneda)
                                     {
@@ -114,34 +118,42 @@
                         </div>
                     </div>
 
-                    <div id="DivddlMonto" class="input-group-prepend">
-                        <div class="input-group-prepend">
-                            <div class="form-control">
-                                <input type="search" value="0.00" id="Monto" class="form-control filtrar input-especiales" data-inputmask="'alias': 'currency1'" />
-                                <label class="form-label" for="Monto">Monto</label>
+                    <div class="row">
+                        <div class="col-md-8 col-lg-8 col-xl-8 col-xxl-8">
+                            <div class="input-group">
+                                <div class="form-outline libre">
+                                    <input type="search" value="0.00" id="Monto" class="form-control filtrar input-especiales" data-inputmask="'alias': 'currency1'" />
+                                    <label class="form-label" for="Monto">Monto</label>
+                                </div>
+                                <span class="obligatorio-rojo Msg_Monto"> *Por favor, rellene este campo</span>
                             </div>
-                            <span class="obligatorio-rojo Msg_Monto"> *Por favor, rellene este campo</span>
                         </div>
                     </div>
 
-                    <div class="input-group-prepend">
-                        <div class="input-group-prepend">
-                            <div class="form-outline libre">
-                                @{
-                                    string fechaminima = DateTime.MinValue.ToString("yyyy-MM-dd");
-                                    string fechamaxima = DateTime.Now.ToString("yyyy-MM-dd");
-                                }
-                                <input type="date" value="@DateTime.Now" id="Fecha" class="form-control filtrar input-especiales" min="@fechaminima" max="@fechamaxima" />
-                                <label class="form-label" for="Fecha">Fecha</label>
+                    <div class="row">
+                        <div class="col-md-8 col-lg-8 col-xl-8 col-xxl-8">
+                            <div class="input-group">
+                                <div class="form-outline libre">
+                                    @{
+                                        string fechaminima = DateTime.MinValue.ToString("yyyy-MM-dd");
+                                        string fechamaxima = DateTime.Now.ToString("yyyy-MM-dd");
+                                    }
+                                    <input type="date" value="@DateTime.Now" id="Fecha" class="form-control filtrar input-especiales" min="@fechaminima" max="@fechamaxima" />
+                                    <label class="form-label" for="Fecha">Fecha</label>
+                                </div>
+                                <span class="obligatorio-rojo Msg_Fecha"> *Por favor, indique una fecha válida</span>
                             </div>
-                            <span class="obligatorio-rojo Msg_Fecha"> *Por favor, indique una fecha válida</span>
                         </div>
                     </div>
-                    
                 </div>
+
+
             </form>
 
-        </div><!-- /.box-body -->
+
+        </div>
+
+        <!-- /.box-body -->
 
         <div class="box-footer">
             <button class="btn btn-primary">Registrar Movimiento</button>

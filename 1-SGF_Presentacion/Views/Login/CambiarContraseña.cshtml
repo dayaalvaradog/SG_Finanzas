@@ -27,59 +27,72 @@
             </div>
             <br />
 
-            <div id="div_usuario" class="input-group-prepend">
-                <div class="input-group-prepend">
-                    <div class="form-control">
-                        <i class="fas fa-user-cog icon"></i>
-                        <input id="idusuario" type="text" placeholder="Nombre de usuario">
+            <div id="div_usuario" class="row">
+                <div class="col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                    <div class="input-group">
+                        <div class="form-outline libre">
+                            <input id="idusuario" type="search" class="form-control filtrar input-especiales">
+                            <label class="form-label" for="idusuario"><i class="fas fa-user-cog icon"></i> Nombre de usuario</label>
+                        </div>
                     </div>
                     <span class="obligatorio-rojo Msg_idusuario"> *Por favor, indique un usuario válido</span>
                 </div>
             </div>
 
-            <div id="divCorreo" class="input-group-prepend" style="display:none;">
-                <div class="input-group-prepend">
-                    <div class="form-control">
-                        <i class="fas fa-envelope icon"></i>
-                        <input id="correoelect" type="text" placeholder="Correo Electronico">
+            <div id="divCorreo" class="row" style="display:none;">
+                <div class="col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                    <div class="input-group">
+                        <div class="form-outline libre">
+                            <input id="correoelect" type="email" class="form-control filtrar input-especiales">
+                            <label class="form-label" for="correoelect"><i class="fas fa-envelope icon"></i> Correo Electrónico</label>
+                        </div>
                     </div>
                     <span class="obligatorio-rojo Msg_correoelect"> *Por favor, digite un correo electrónico válido</span>
                 </div>
             </div>
 
-            <div class="input-group-prepend">
-                <div class="input-group-prepend">
-                    <div class="form-control">
-                        <i class="far fa-question-circle icon"></i>
-                        <input id="pin" type="text" placeholder="Pin de recuperacion de contraseña">
+            <div class="row">
+                <div class="col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                    <div class="input-group">
+                        <div class="form-outline libre">
+                            <input id="pin" type="search" class="form-control filtrar input-especiales">
+                            <label class="form-label" for="pin"><i class="far fa-question-circle icon"></i> Pin de recuperacion de contraseña</label>
+                        </div>
                     </div>
                     <span class="obligatorio-rojo Msg_pin"> *Por favor, digite un pin válido</span>
                 </div>
             </div>
 
-            <div class="input-group-prepend">
-                <div class="input-group-prepend">
-                    <div class="form-control">
-                        <i class="fas fa-key icon"></i>
-                        <input id="contrasenianueva" type="password" placeholder="Contraseña Nueva">
+            <div class="row">
+                <div class="col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                    <div class="input-group">
+                        <div class="form-outline libre">
+                            <input id="contrasenianueva" type="password" class="form-control filtrar input-especiales">
+                            <label class="form-label" for="contrasenianueva"><i class="fas fa-key icon"></i> Contraseña nueva</label>
+                        </div>
                     </div>
                     <span class="obligatorio-rojo Msg_contrasenianueva"> *Por favor, rellene este campo</span>
                 </div>
             </div>
 
-            <div class="input-group-prepend">
-                <div class="input-group-prepend">
-                    <div class="form-control">
-                        <i class="fas fa-key icon"></i>
-                        <input id="confirmarcontrasenianueva" type="password" placeholder="Confirmar Contraseña Nueva">
+            <div class="row">
+                <div class="col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                    <div class="input-group">
+                        <div class="form-outline libre">
+                            <input id="confirmarcontrasenianueva" type="password" class="form-control filtrar input-especiales">
+                            <label class="form-label" for="confirmarcontrasenianueva"><i class="fas fa-key icon"></i> Confirmar Contraseña Nueva</label>
+                        </div>
                     </div>
                     <span class="obligatorio-rojo Msg_confirmarcontrasenianueva"> *Por favor, rellene este campo</span>
                 </div>
             </div>
-
-            <input id="btnRecuperar" onclick="CambiarContrasenia();" value="Cambiar contraseña" class="button">
-            <div id="liveAlertPlaceholder"></div>
-            <p>¿Ya tienes una cuenta?<a class="link" href="@Url.Action("Login","Login")"> Iniciar Sesion</a></p>
+            <div class="row">
+                <div class="input-group-prepend">
+                    <input id="btnRecuperar" onclick="CambiarContrasenia();" value="Cambiar contraseña" class="button">
+                    <div id="liveAlertPlaceholder"></div>
+                    <p>¿Ya tienes una cuenta?<a class="link" href="@Url.Action("Login","Login")"> Iniciar Sesion</a></p>
+                </div>
+            </div>
         </div>
     </form>
 </body>
