@@ -10,9 +10,12 @@ namespace _6_SGF_Entidades.Movimiento
     {
         public int CodMovimiento { get; set; }
         public int CodCuenta { get; set; }
+        public string? AliasCuenta { get; set; }
         public int CodCategoria { get; set; }
+        public string? Categoria { get; set; }
         public int CodClasificacion { get; set; }
-        public float Monto { get; set; }
+        public string? Clasificacion { get; set; }
+        public decimal Monto { get; set; }
         public DateTime FechaMovimiento { get; set; }
     }
 }

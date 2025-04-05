@@ -51,9 +51,9 @@ namespace _1_SGF_Presentacion.Controllers
         }
 
         [HttpGet]
-        public async Task<Respuesta<List<CuentaBancaria>>> ObtenerEstadoCuenta(int CodCuenta)
+        public async Task<Respuesta<EstadoCuenta>> ObtenerEstadoCuenta(int CodCuenta)
         {
-            Respuesta<List<CuentaBancaria>> resultado = new Respuesta<List<CuentaBancaria>>();
+            Respuesta<EstadoCuenta> resultado = new Respuesta<EstadoCuenta>();
             try
             {
                 resultado = await CuentaModel.ObtenerEstadoCuenta(CodCuenta);

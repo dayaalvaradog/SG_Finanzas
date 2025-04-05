@@ -29,15 +29,15 @@ namespace _1_SGF_Presentacion.Models
             return result;
         }
 
-        public static async Task<Respuesta<List<CuentaBancaria>>> ObtenerEstadoCuenta(int codCuenta)
+        public static async Task<Respuesta<EstadoCuenta>> ObtenerEstadoCuenta(int codCuenta)
         {
             // Se crea el objeto que se va a devolver
-            Respuesta<List<CuentaBancaria>> result = new Respuesta<List<CuentaBancaria>>();
+            Respuesta<EstadoCuenta> result = new Respuesta<EstadoCuenta>();
 
             try
             {
                 // Se crea el objeto API para consumir el servicio
-                API<Respuesta<List<CuentaBancaria>>> servicio = new API<Respuesta<List<CuentaBancaria>>>(new Uri($"{DatosAppSettings.GetUrlAPI()}/Cuenta/ObtenerEstadoCuenta/{codCuenta}"));
+                API<Respuesta<EstadoCuenta>> servicio = new API<Respuesta<EstadoCuenta>>(new Uri($"{DatosAppSettings.GetUrlAPI()}/Cuenta/ObtenerEstadoCuenta/{codCuenta}"));
 
                 result = await servicio.ObtenerResultadoAsync("GET");
             }

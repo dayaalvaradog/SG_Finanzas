@@ -1,4 +1,69 @@
-﻿@{
+﻿@using _6_SGF_Entidades.Cuenta;
+@model List<CuentaBancaria>
+@{
     ViewBag.Title = "Estado de Cuentas";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="content-wrapper">
+    <section class="content-header">
+        <h1>
+            Movimientos
+            <small>realizados</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a><i class="fa fa-dashboard"></i> Consulta de Finanzas</a></li>
+            <li><a>Consulta de estado de cuentas</a></li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Hover Data Table</h3>
+                    </div><!-- /.box-header -->
+                    <div class="box-body">
+                        <table id="example2" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Código de Cuenta</th>
+                                    <th>Número de Cuenta</th>
+                                    <th>Alias</th>
+                                    <th>Ingresos</th>
+                                    <th>Gastos</th>
+                                    <th>Saldo</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var cuenta in Model)
+                                {
+                                    <tr>
+                                        <td>@cuenta.CodCuenta</td>
+                                        <td>@cuenta.NumeroCuenta</td>
+                                        <td>@cuenta.AliasCuenta</td>
+                                        <td>@cuenta.Ingresos</td>
+                                        <td>@cuenta.Gastos</td>
+                                        <td>@cuenta.Saldo</td>
+                                    </tr>
+                                }
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Código de Cuenta</th>
+                                    <th>Número de Cuenta</th>
+                                    <th>Alias</th>
+                                    <th>Ingresos</th>
+                                    <th>Gastos</th>
+                                    <th>Saldo</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div><!-- /.col -->
+        </div>
+    </section>
+</div>

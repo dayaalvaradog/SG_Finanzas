@@ -80,8 +80,11 @@ namespace _3_SGF_AccesoDatos
                        {
                            CodMovimiento = x.CodMovimiento,
                            CodCuenta = x.CodCuenta,
+                           AliasCuenta = x.AliasCuenta,
                            CodCategoria = x.CodCategoria,
+                           Categoria = x.Categoria,
                            CodClasificacion = x.CodClasificacion,
+                           Clasificacion = x.Clasificacion,
                            Monto = x.Monto,
                            Fecha = x.FechaMovimiento
                        })
