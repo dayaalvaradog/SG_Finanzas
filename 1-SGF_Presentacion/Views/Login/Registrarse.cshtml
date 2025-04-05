@@ -1,10 +1,13 @@
 ﻿@inject IHttpContextAccessor Accessor
+<!DOCTYPE html>
+<html lang="en">
 @{
     <meta charset="UTF-8">
     ViewBag.Title = "Registrarse";
     <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <link rel="stylesheet" href="~/css/Registrarse.css">
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/_1_SGF_Presentacion.styles.css" asp-append-version="true" />
@@ -55,12 +58,14 @@
                 <div class="row">
                     <div class="col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                         <div class="input-group">
-                            <div class="form-outline libre">
-                                <input id="nuevacontrasenia" type="password" class="form-control filtrar input-especiales" style="width: 100% !important;">
+                            <div class="col-lg-10 col-xl-10 form-outline libre">
+                                <input id="nuevacontrasenia" type="password" class="form-control filtrar input-especiales" style="width: 100% !important;" data-toggle="tooltip" data-placement="right" data-bs-html="true" title="Requiere:<br>Mínimo 8 caracteres <br> Al menos una mayúscula y una minúscula <br> Al menos un número <br> Al menos un caracter especial">
                                 <label class="form-label" for="nuevacontrasenia"><i class="fas fa-key icon"></i> Contraseña</label>
                             </div>
                             <span class="obligatorio-rojo Msg_nuevacontrasenia"> *Por favor, rellene este campo</span>
+                            
                         </div>
+                        
                     </div>
                 </div>
 
@@ -112,4 +117,26 @@
     const RutaValidarCorreoExiste = '@Url.Action("ValidarCorreoExiste", "Login")';
     const RutaValidaIdUsuarioExiste = '@Url.Action("ValidaIdUsuarioExiste", "Login")';
     const RutaRegistrarse = '@Url.Action("RegistrarUsuario", "Login")';
+</script>
+
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+        const inputs = document.querySelectorAll('input'); // Selecciona todos los inputs (puedes refinar la selección)
+
+        inputs.forEach(input => {
+            if (input.value.trim() !== '') {
+                input.classList.add('active');
+            }
+        });
+    });
+
+    const tooltipTriggerList = document.querySelectorAll('[data-toggle="tooltip"]')
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
+    const popoverTriggerList = document.querySelectorAll('[data-toggle="popover"]')
+    const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
 </script>

@@ -3,16 +3,16 @@
     //Se inicializa el arreglo de errores
     var eserror = false;
 
-    var usuario = $("#Usuario").val();
+    var usuario = $("#txtUsuario").val();
     var password = $("#Contrasenia").val();
 
     //Se valida si el usuario esta vacio
     if (usuario == "") {
-        AplicarEstiloValidacion("Usuario", true, true);
+        AplicarEstiloValidacion("txtUsuario", true, true);
         eserror = true;
     }
     else {
-        EliminarEstiloValidacion("Usuario", true, true);
+        EliminarEstiloValidacion("txtUsuario", true, true);
     }
 
     //Se valida si la contraseña esta vacia
@@ -31,7 +31,7 @@
 function IniciarSesion() {
     var eserror = ValidarLogin();
 
-    var us = $("#Usuario").val();
+    var us = $("#txtUsuario").val();
     var pass = $("#Contrasenia").val();
 
     if (!eserror) {
@@ -65,3 +65,4 @@ function IniciarSesion() {
         });
     }
 }
+

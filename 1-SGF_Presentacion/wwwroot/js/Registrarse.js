@@ -152,8 +152,7 @@ function Registrarse() {
 
     var datosUsuario =
     {
-        CodUsuario: 0,
-        IdUsuario: $("#nombreusuario").val().toString(),
+        CodUsuario: $("#nombreusuario").val().toString(),
         NombreCompleto: $("#nombrecompleto").val().toString(),
         TipoUsuario: 1,
         Correo: $("#correo").val(),

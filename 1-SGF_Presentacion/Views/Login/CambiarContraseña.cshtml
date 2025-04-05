@@ -1,4 +1,6 @@
 ﻿@inject IHttpContextAccessor Accessor
+<!DOCTYPE html>
+<html lang="en">
 @{
     <meta charset="UTF-8">
     <title></title>
@@ -67,7 +69,7 @@
                 <div class="col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                     <div class="input-group">
                         <div class="form-outline libre">
-                            <input id="contrasenianueva" type="password" class="form-control filtrar input-especiales">
+                            <input id="contrasenianueva" type="password" class="form-control filtrar input-especiales" data-toggle="tooltip" data-placement="right" data-bs-html="true" title="Requiere:<br>Mínimo 8 caracteres <br> Al menos una mayúscula y una minúscula <br> Al menos un número <br> Al menos un caracter especial">
                             <label class="form-label" for="contrasenianueva"><i class="fas fa-key icon"></i> Contraseña nueva</label>
                         </div>
                     </div>
@@ -109,4 +111,25 @@
     const RutaValidaIdUsuarioExiste = '@Url.Action("ValidaIdUsuarioExiste", "Login")';
     const RutaRegistrarse = '@Url.Action("RegistrarUsuario", "Login")';
     const RutaCambiarContrasenia = '@Url.Action("RecuperarContrasenia", "Login")';
+</script>
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+        const inputs = document.querySelectorAll('input'); // Selecciona todos los inputs (puedes refinar la selección)
+
+        inputs.forEach(input => {
+            if (input.value.trim() !== '') {
+                input.classList.add('active');
+            }
+        });
+    });
+
+    const tooltipTriggerList = document.querySelectorAll('[data-toggle="tooltip"]')
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
+    const popoverTriggerList = document.querySelectorAll('[data-toggle="popover"]')
+    const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
 </script>

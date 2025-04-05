@@ -1,4 +1,5 @@
 ﻿using _6_SGF_Entidades.Login;
+using _6_SGF_Entidades.Movimiento;
 using Newtonsoft.Json;
 using System.Text;
 
@@ -100,6 +101,16 @@ namespace _7_SGF_Comun.API
             {
                 ApiType = SD.ApiType.GET,
                 Url = SD.SGFAPIBase + "/Login/RecuperarContrasenia",
+                Data = datos,
+            });
+        }
+
+        public async Task<ResponseDto?> InsertarMovimiento(Movimiento datos)
+        {
+            return await SendAsync(new RequestDto()
+            {
+                ApiType = SD.ApiType.POST,
+                Url = SD.SGFAPIBase + "/Movimiento/InsertarMovimiento",
                 Data = datos,
             });
         }

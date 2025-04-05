@@ -280,3 +280,8 @@ input.input-especiales {
     margin: 3px 0;
     color: var(--grisoscuro);
 }
+
+.ayudas {
+    width: 20px;
+    height: 20px;
+}

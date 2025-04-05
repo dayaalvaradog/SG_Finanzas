@@ -185,3 +185,17 @@ function RedireccionarRuta(codTipo, codMenu) {
     var ruta = ObtenerRuta(codTipo, codMenu);
     window.location.href = ruta;
 }
+
+function RenderizarComponentes() {
+    const tooltipTriggerList = document.querySelectorAll('[data-toggle="tooltip"]')
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
+    const popoverTriggerList = document.querySelectorAll('[data-toggle="popover"]')
+    const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+
+    feather.replace();
+
+    $('[data-mdb-toggle="tooltip"]').tooltip();
+
+}
+
